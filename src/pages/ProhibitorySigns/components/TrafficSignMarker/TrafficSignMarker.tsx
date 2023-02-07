@@ -8,7 +8,7 @@ import { trafficSignBackgrounds } from './backgrounds'
 
 const TrafficSignIcon = (item: TrafficSign) => {
   const signType = item.properties.rvvCode.toLowerCase()
-  const isZonalSign = endsWith(signType, 'zb')
+  const isZonalSign = endsWith(signType, '(zone)')
   const signCategory = item.properties.categorie
 
   if (

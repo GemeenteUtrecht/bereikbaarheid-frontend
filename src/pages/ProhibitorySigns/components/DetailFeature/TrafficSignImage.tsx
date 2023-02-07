@@ -21,7 +21,7 @@ const ProhibitorySignsDetailFeatureTrafficSignImage = () => {
   const { currentTrafficSign } = useProhibitorySignsMapContext()
 
   const signType = currentTrafficSign?.properties.rvvCode.toLowerCase()
-  const isZonalSign = endsWith(signType, 'zb')
+  const isZonalSign = endsWith(signType, '(zone)')
   const signCategory = currentTrafficSign?.properties.categorie
   const signText = () => {
     let signValue = currentTrafficSign?.properties.bordWaarde

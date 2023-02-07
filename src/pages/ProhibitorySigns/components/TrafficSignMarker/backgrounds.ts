@@ -18,6 +18,8 @@ import c07zbProhibitionException from './images/C07ZB--verbod-met-uitzondering.p
 import c08Prohibition from './images/C08--verbod.png'
 import c09Prohibition from './images/C09--verbod.png'
 import c10Prohibition from './images/C10--verbod.png'
+import c10ProhibitionAhead from './images/C10--vooraankondiging-verbod.png'
+import c10ProhibitionException from './images/C10--verbod-met-uitzondering.png'
 import c17Prohibition from './images/C17--verbod.png'
 import c17ProhibitionAhead from './images/C17--vooraankondiging-verbod.png'
 import c17ProhibitionException from './images/C17--verbod-met-uitzondering.png'
@@ -52,17 +54,17 @@ export const trafficSignBackgrounds: TrafficSignBackground = {
     'verbod met uitzondering': c07ProhibitionException,
     vooraankondiging: c07ProhibitionAhead,
   },
-  c07a: {
+  c7a: {
     verplichting: c07aProhibition,
     'verbod met uitzondering': c07aProhibitionException,
     vooraankondiging: c07aProhibitionAhead,
   },
-  c07b: {
+  c7b: {
     verplichting: c07bProhibition,
     'verbod met uitzondering': c07bProhibitionException,
     vooraankondiging: c07bProhibitionAhead,
   },
-  c07zb: {
+  'c7(zone)': {
     verplichting: c07zbProhibition,
     'verbod met uitzondering': c07zbProhibitionException,
     vooraankondiging: c07zbProhibitionAhead,
@@ -75,6 +77,8 @@ export const trafficSignBackgrounds: TrafficSignBackground = {
   },
   c10: {
     verplichting: c10Prohibition,
+    'verbod met uitzondering': c10ProhibitionException,
+    vooraankondiging: c10ProhibitionAhead,
   },
   c17: {
     verplichting: c17Prohibition,
