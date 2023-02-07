@@ -18,8 +18,8 @@ const ScenarioDisplayResultIntro = () => {
     return (
       <IntroWrapper>
         U heeft <strong>geen</strong> of een <strong>ongeldig</strong> adres
-        adres ingevoerd. De kleuren (uitleg zie legenda rechtsboven) op de kaart
-        geven aan <strong>waar</strong> u welke ontheffing(en) u nodig heeft.
+        ingevoerd. De kleuren (uitleg zie legenda rechtsboven) op de kaart geven
+        aan <strong>waar</strong> u welke ontheffing(en) u nodig heeft.
       </IntroWrapper>
     )
   }
