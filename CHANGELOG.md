@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.1.1...HEAD)
 
+### Added
+- C10 traffic signs for prohibition ahead and prohibition with exception
+
+### Fixed
+- display zonal traffic signs
+
 
 ## v0.1.1 - 2023-02-01
 
