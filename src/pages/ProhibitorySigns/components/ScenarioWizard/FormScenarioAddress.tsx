@@ -20,6 +20,7 @@ import { suggest, PdokSuggestItem } from '../../../../api/pdok/suggest'
 import { useProhibitorySignsPageContext } from '../../contexts/PageContext'
 import { FormLabel } from '../../../../shared/components/FormLabel'
 import { wktPointToLocation } from '../../../../shared/map/wktPointToLocation'
+import { theme } from '../../../../styles/Theme'
 import { Address } from '../../../../types/address'
 
 import ScenarioWizardNav from './ScenarioWizardNav'
@@ -145,7 +146,7 @@ const ProhibitorySignsFormScenarioAddress = () => {
 
       <AddressOptionsContainer>
         {addressOptions.length > 0 && (
-          <CompactThemeProvider>
+          <CompactThemeProvider overrides={theme}>
             <List>
               {addressOptions.map((item, index) => (
                 <ListItem key={index}>

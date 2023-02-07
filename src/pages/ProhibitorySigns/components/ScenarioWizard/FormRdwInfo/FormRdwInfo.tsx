@@ -18,6 +18,7 @@ import {
 import { z } from 'zod'
 
 import LoadingSpinner from '../../../../../shared/components/LoadingSpinner'
+import { theme } from '../../../../../styles/Theme'
 
 import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
 import { useRdwInfo } from '../../../hooks/useRdwInfo'
@@ -84,7 +85,7 @@ const ProhibitorySignsFormScenarioRdwInfo = ({
   }
 
   return (
-    <CompactThemeProvider>
+    <CompactThemeProvider overrides={theme}>
       <Paragraph>
         Uw voertuiggegevens volgens{' '}
         <Link

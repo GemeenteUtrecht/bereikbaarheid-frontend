@@ -11,6 +11,7 @@ import { generatePath, Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { getPathTo } from '../../../../routes'
+import { theme } from '../../../../styles/Theme'
 
 import { useProhibitorySignsMapContext } from '../../contexts/MapContext'
 import { useProhibitorySignsPageContext } from '../../contexts/PageContext'
@@ -55,7 +56,7 @@ const ProhibitorySignsDetailFeatureTrafficSign = () => {
       )}
 
       <PropertiesContainer>
-        <CompactThemeProvider>
+        <CompactThemeProvider overrides={theme}>
           <Row halign="flex-start" hasMargin={false} valign="center">
             <Column span={6}>Bordnummer</Column>
             <Column span={6}>{currentTrafficSign?.properties.id}</Column>

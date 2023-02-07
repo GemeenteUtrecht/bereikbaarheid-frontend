@@ -11,6 +11,7 @@ import styled from 'styled-components'
 
 import LoadingSpinner from '../../../../shared/components/LoadingSpinner'
 import { ReactComponent as DistanceToDestinationIcon } from '../../../../shared/icons/bootstrap-icon-flag-fill.svg'
+import { theme } from '../../../../styles/Theme'
 
 import { usePermitsByLocation } from '../../hooks/usePermitsByLocation'
 import { RvvDetailExplanation, RvvDetailToggle } from '../RvvDetail'
@@ -56,7 +57,7 @@ const ScenarioDisplayResult = () => {
       </HeaderRow>
 
       <FiltersContainer>
-        <CompactThemeProvider>
+        <CompactThemeProvider overrides={theme}>
           <Row halign="flex-start" hasMargin={false}>
             <Column span={12}>
               <ScenarioDisplayResultIntro />
