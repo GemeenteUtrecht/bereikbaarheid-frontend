@@ -1,5 +1,5 @@
 import { Column, Paragraph, Row } from '@amsterdam/asc-ui'
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -40,14 +40,14 @@ function displayMap(roadSection: RoadSectionFeatureCollection) {
 const RoadSectionPage = () => {
   const { wegvakId: roadSectionId } = useParams()
   useDocumentTitle(`Wegvak ${roadSectionId}`)
-  const {
-    data: roadSection,
-    error,
-    isError,
-    isLoading,
-  } = useQuery('roadSection', ({ signal }) =>
-    getRoadSection(roadSectionId, signal)
-  )
+  const roadSection = useQuery({
+    queryKey: ['roadSection', roadSectionId],
+    queryFn: ({ signal }) => getRoadSection(roadSectionId, signal),
+  })
+
+  if (!roadSection.data || roadSection.isLoading) {
+    return <LoadingSpinner />
+  }
 
   return (
     <>
@@ -57,13 +57,14 @@ const RoadSectionPage = () => {
         <ContentContainer>
           <Row valign="flex-start">
             <StyledColumn span={6}>
-              {isError && error instanceof Error && <div>{error.message}</div>}
-              {isLoading && <LoadingSpinner />}
-              {roadSection && displayDetails(roadSection)}
+              {roadSection.isError && roadSection.error instanceof Error && (
+                <div>{roadSection.error.message}</div>
+              )}
+              {roadSection && displayDetails(roadSection.data)}
             </StyledColumn>
 
             <StyledColumn span={6}>
-              {roadSection && displayMap(roadSection)}
+              {roadSection && displayMap(roadSection.data)}
             </StyledColumn>
           </Row>
         </ContentContainer>

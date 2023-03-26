@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query'
+import { useQuery } from '@tanstack/react-query'
 
 import { getPermitsByLocation } from '../../../api/nationaalwegenbestand/rvv/locatie'
 
@@ -35,6 +35,6 @@ export const usePermitsByLocation = () => {
 
   return {
     data: queryResult.data,
-    isLoading: queryResult.isLoading,
+    isInitialLoading: queryResult.isInitialLoading,
   }
 }
