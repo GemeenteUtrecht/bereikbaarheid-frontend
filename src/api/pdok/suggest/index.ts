@@ -27,7 +27,7 @@ export const pdokSuggestItemFieldList = ['id', 'weergavenaam', 'centroide_ll']
 
 export function suggest(searchString: string): Promise<PdokSuggestItems> {
   return axios
-    .get('https://geodata.nationaalgeoregister.nl/locatieserver/v3/suggest', {
+    .get('https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest', {
       params: {
         q: `${searchString} and type:adres`,
         fl: pdokSuggestItemFieldList.join(','),
