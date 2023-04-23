@@ -1,3 +1,4 @@
+import { mapPanelConstants, MapPanelContext } from '@amsterdam/arm-core'
 import {
   Column,
   CompactThemeProvider,
@@ -5,14 +6,17 @@ import {
   Paragraph,
   Row,
 } from '@amsterdam/asc-ui'
+import { useContext } from 'react'
 
 import { EditFiltersButton, FiltersContainer } from './ScenarioDisplayStyle'
 import { useProhibitorySignsPageContext } from '../../contexts/PageContext'
 
 const ScenarioDisplayStartAndAddress = () => {
+  const { setPositionFromSnapPoint } = useContext(MapPanelContext)
   const { setActiveStepWizard, address, setShowScenarioWizard, vehicle } =
     useProhibitorySignsPageContext()
   const showScenarioWizard = () => {
+    setPositionFromSnapPoint(mapPanelConstants.SnapPoint.Closed)
     setActiveStepWizard(0)
     setShowScenarioWizard(true)
   }

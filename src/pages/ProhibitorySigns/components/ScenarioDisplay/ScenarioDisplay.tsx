@@ -1,10 +1,4 @@
-import {
-  mapPanelConstants,
-  MapPanelContent,
-  MapPanelContentProps,
-  MapPanelContext,
-} from '@amsterdam/arm-core'
-import { useContext, useEffect } from 'react'
+import { MapPanelContent, MapPanelContentProps } from '@amsterdam/arm-core'
 
 import { useProhibitorySignsPageContext } from '../../contexts/PageContext'
 
@@ -14,15 +8,6 @@ import ScenarioDisplayStartAndAddress from './StartAndAddress'
 
 const ScenarioDisplay = ({ ...otherProps }: MapPanelContentProps) => {
   const { showScenarioWizard } = useProhibitorySignsPageContext()
-  const { setPositionFromSnapPoint } = useContext(MapPanelContext)
-
-  useEffect(() => {
-    const mapPanelPosition = !showScenarioWizard
-      ? mapPanelConstants.SnapPoint.Halfway
-      : mapPanelConstants.SnapPoint.Closed
-
-    setPositionFromSnapPoint(mapPanelPosition)
-  }, [setPositionFromSnapPoint, showScenarioWizard])
 
   return (
     <MapPanelContent {...otherProps}>

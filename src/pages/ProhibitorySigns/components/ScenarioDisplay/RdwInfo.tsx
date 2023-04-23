@@ -1,3 +1,4 @@
+import { mapPanelConstants, MapPanelContext } from '@amsterdam/arm-core'
 import {
   Column,
   CompactThemeProvider,
@@ -7,6 +8,7 @@ import {
   styles,
   themeSpacing,
 } from '@amsterdam/asc-ui'
+import { useContext } from 'react'
 import styled from 'styled-components'
 
 import { EditFiltersButton, FiltersContainer } from './ScenarioDisplayStyle'
@@ -41,12 +43,14 @@ const TotalWeightRow = styled(Row)`
 `
 
 const ScenarioDisplayRdwInfo = () => {
+  const { setPositionFromSnapPoint } = useContext(MapPanelContext)
   const { setActiveStepWizard, setShowScenarioWizard, vehicle } =
     useProhibitorySignsPageContext()
 
   const rdwGeneralInfo = useRdwGeneralInfo()
 
   const showScenarioWizard = () => {
+    setPositionFromSnapPoint(mapPanelConstants.SnapPoint.Closed)
     setActiveStepWizard(2)
     setShowScenarioWizard(true)
   }

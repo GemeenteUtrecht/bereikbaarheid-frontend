@@ -1,3 +1,4 @@
+import { mapPanelConstants, MapPanelContext } from '@amsterdam/arm-core'
 import { ChevronLeft } from '@amsterdam/asc-assets'
 import {
   Button,
@@ -7,6 +8,7 @@ import {
   Paragraph,
 } from '@amsterdam/asc-ui'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useContext } from 'react'
 import {
   DeepMap,
   FieldError,
@@ -56,6 +58,7 @@ interface ProhibitorySignsFormScenarioRdwInfoProps {
 const ProhibitorySignsFormScenarioRdwInfo = ({
   addressInputEnabled,
 }: ProhibitorySignsFormScenarioRdwInfoProps) => {
+  const { setPositionFromSnapPoint } = useContext(MapPanelContext)
   const { setActiveStepWizard, setShowScenarioWizard, vehicle, setVehicle } =
     useProhibitorySignsPageContext()
   const previousFormStep = addressInputEnabled ? 1 : 0
@@ -81,6 +84,7 @@ const ProhibitorySignsFormScenarioRdwInfo = ({
       width: data.vehicleWidth,
     })
 
+    setPositionFromSnapPoint(mapPanelConstants.SnapPoint.Full)
     setShowScenarioWizard(false)
   }
 

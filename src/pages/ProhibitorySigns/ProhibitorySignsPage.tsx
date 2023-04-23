@@ -65,16 +65,16 @@ const ProhibitorySignsPage = () => {
                 </Element>
 
                 <ProhibitorySignsViewerContainer {...{ showDesktopVariant }} />
+
+                <ProhibitorySignsScenarioWizard
+                  setShowFeedbackModal={setOpenFeedbackModal}
+                />
               </MapPanelProvider>
 
               <ProhibitorySignsMapLayers />
             </ProhibitorySignsMapProvider>
           </StyledMap>
         </MainContent>
-
-        <ProhibitorySignsScenarioWizard
-          setShowFeedbackModal={setOpenFeedbackModal}
-        />
       </ProhibitorySignsPageProvider>
 
       <FeedbackModal setOpen={setOpenFeedbackModal} open={openFeedbackModal} />
