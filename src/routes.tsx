@@ -1,5 +1,6 @@
 import { Navigate, RouteObject } from 'react-router-dom'
 
+import ErrorPage from './pages/ErrorPage'
 import ProhibitorySignsPage from './pages/ProhibitorySigns/ProhibitorySignsPage'
 import RoadSectionPage from './pages/RoadSection/RoadSectionPage'
 
@@ -18,6 +19,7 @@ export const ROUTES: RouteObject[] = [
     path: '/wegvak/:wegvakId',
     id: 'ROAD_SECTION_DETAIL_PAGE',
     element: <RoadSectionPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '*',

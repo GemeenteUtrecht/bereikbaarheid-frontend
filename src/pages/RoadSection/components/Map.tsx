@@ -12,6 +12,7 @@ import styled, { useTheme } from 'styled-components'
 import type L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
+import { RoadSection } from '../../../api/nationaalwegenbestand/wegvakken'
 import { MapStyle } from '../../../shared/map/mapStyle'
 import { defaultMapOptions } from '../../../shared/map/mapDefaults'
 import {
@@ -19,7 +20,6 @@ import {
   roadNetworkNoRestrictions,
   topoBlackWhite,
 } from '../../../shared/map/mapLayers'
-import { RoadSectionFeatureCollection } from '../../../api/nationaalwegenbestand/wegvakken'
 
 const StyledMap = styled(Map<typeof Map>)`
   height: 450px;
@@ -36,29 +36,28 @@ const MapContainer = styled.div`
 `
 
 interface RoadSectionMapProps {
-  roadSections: RoadSectionFeatureCollection
+  roadSection: RoadSection
 }
 
-const RoadSectionMap = ({ roadSections }: RoadSectionMapProps) => {
+const RoadSectionMap = ({ roadSection }: RoadSectionMapProps) => {
   const [mapInstance, setMapInstance] = useState<L.Map | null>(null)
-  const [roadSectionLayer, setRoadSectionLayer] = useState<L.GeoJSON | null>(
-    null
-  )
+  const [layerInstance, setLayerInstance] = useState<L.GeoJSON | null>(null)
   const theme = useTheme()
 
   useEffect(() => {
-    if (mapInstance && roadSectionLayer) {
+    if (mapInstance && layerInstance) {
       // center the map to the road section
-      mapInstance.fitBounds(roadSectionLayer.getBounds(), { maxZoom: 18 })
+      mapInstance.fitBounds(layerInstance.getBounds(), { maxZoom: 18 })
     }
-  }, [mapInstance, roadSectionLayer])
+  }, [mapInstance, layerInstance])
 
   return (
     <MapContainer>
       <MapStyle />
       <StyledMap options={defaultMapOptions} setInstance={setMapInstance}>
         <GeoJSON
-          args={[roadSections]}
+          key={roadSection.properties.wegvakId}
+          args={[roadSection.geometry]}
           options={{
             interactive: false,
             style: () => {
@@ -68,7 +67,7 @@ const RoadSectionMap = ({ roadSections }: RoadSectionMapProps) => {
               }
             },
           }}
-          setInstance={setRoadSectionLayer}
+          setInstance={setLayerInstance}
         />
 
         <TileLayer options={oneWayArrows.options} args={[oneWayArrows.url]} />
