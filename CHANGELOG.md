@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Fixed
 - fix alignment vehicle info
+- opt-into React Router future flags
 - upgrade Nodejs to version 18
 
 

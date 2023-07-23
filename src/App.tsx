@@ -15,14 +15,18 @@ const queryClient = new QueryClient({
   },
 })
 
-const router = createBrowserRouter(ROUTES)
+const router = createBrowserRouter(ROUTES, {
+  future: {
+    v7_normalizeFormMethod: true,
+  },
+})
 
 function App() {
   return (
     <ThemeProvider overrides={theme}>
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <RouterProvider future={{ v7_startTransition: true }} router={router} />
 
         <ReactQueryDevtools />
       </QueryClientProvider>
