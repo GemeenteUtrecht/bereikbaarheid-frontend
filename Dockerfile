@@ -1,4 +1,4 @@
-FROM node:16-stretch as builder
+FROM node:18 as builder
 
 ENV BROWSER=none
 
