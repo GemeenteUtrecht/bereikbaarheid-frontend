@@ -30,7 +30,7 @@ export const TrafficSignMarker = (item: TrafficSign) => {
     new L.LatLng(item.geometry.coordinates[1], item.geometry.coordinates[0]),
     {
       icon: TrafficSignIcon(item),
-    }
+    },
   )
 
   return marker

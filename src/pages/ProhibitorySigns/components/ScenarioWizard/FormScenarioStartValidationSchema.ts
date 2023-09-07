@@ -44,7 +44,7 @@ export const FormScenarioStartValidationSchema = z.object({
         String(val)
           .replace(/ |-|\t/g, '')
           .toUpperCase(),
-      z.string()
+      z.string(),
     )
     .superRefine((val, ctx) => {
       if (val.length < 4) {
@@ -66,7 +66,7 @@ export const FormScenarioStartValidationSchema = z.object({
       .gt(0, 'Hoogte moet vallen tussen 0 m en 4 m')
       .max(
         4,
-        'Hoogte moet vallen tussen 0 m en 4 m. Neem contact op met het RDW.'
-      )
+        'Hoogte moet vallen tussen 0 m en 4 m. Neem contact op met het RDW.',
+      ),
   ),
 })

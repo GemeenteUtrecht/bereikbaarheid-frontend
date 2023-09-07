@@ -33,7 +33,7 @@ export function getTrafficSigns(
   vehicle: Vehicle,
   vehicleMaxAllowedWeight: number,
   vehicleType: string,
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ): Promise<TrafficSignsFeatureCollection> {
   const trafficSignsRequest = axios.create({
     // create an URL with repeated parameters,
@@ -44,7 +44,7 @@ export function getTrafficSigns(
           .map(([key, value], i) =>
             Array.isArray(value)
               ? `${key}=${value.join('&' + key + '=')}`
-              : `${key}=${value}`
+              : `${key}=${value}`,
           )
           .join('&')
       },

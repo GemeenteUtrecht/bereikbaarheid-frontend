@@ -37,7 +37,7 @@ export interface RoadSectionFeatureCollection extends FeatureCollection {
 
 export function getRoadSection(
   wegvakId: string | undefined,
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ): Promise<RoadSectionFeatureCollection> {
   if (wegvakId === undefined) {
     throw new Error('please provide an NWB road section id')

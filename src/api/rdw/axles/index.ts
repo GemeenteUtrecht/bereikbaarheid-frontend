@@ -6,7 +6,7 @@ export interface rdwAxlesData {
 
 export function getAxlesInfo(
   licensePlate: string,
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ): Promise<rdwAxlesData[]> {
   return axios
     .get('https://opendata.rdw.nl/resource/3huj-srit.json', {

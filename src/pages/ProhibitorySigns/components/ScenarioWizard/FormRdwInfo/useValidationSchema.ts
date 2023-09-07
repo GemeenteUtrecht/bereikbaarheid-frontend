@@ -63,8 +63,8 @@ export const useRdwInfoValidationSchema = () => {
           },
           {
             message: `Lading mag niet meer zijn dan ${generalInfo.data?.[0].derived.payload} kg`,
-          }
-        )
+          },
+        ),
     ),
     vehicleTotalWeight: z.preprocess(
       val => Number(String(val).replace(',', '.')),
@@ -74,12 +74,12 @@ export const useRdwInfoValidationSchema = () => {
         })
         .min(
           generalInfo.data?.[0].derived.curbWeight!,
-          `Totaal gewicht moet meer zijn dan ${generalInfo.data?.[0].derived.curbWeight} kg`
+          `Totaal gewicht moet meer zijn dan ${generalInfo.data?.[0].derived.curbWeight} kg`,
         )
         .max(
           maxTotalWeight(),
-          `Totaal gewicht mag niet meer zijn dan ${maxTotalWeight()} kg. Neem contact op met het RDW.`
-        )
+          `Totaal gewicht mag niet meer zijn dan ${maxTotalWeight()} kg. Neem contact op met het RDW.`,
+        ),
     ),
     vehicleAxleWeight: zToNumber(
       z
@@ -92,8 +92,8 @@ export const useRdwInfoValidationSchema = () => {
         .min(0, 'Aslast moet minimaal 0 kg zijn')
         .max(
           maxAxleWeight(),
-          `Aslast mag niet meer zijn dan ${maxAxleWeight()} kg. Neem contact op met het RDW.`
-        )
+          `Aslast mag niet meer zijn dan ${maxAxleWeight()} kg. Neem contact op met het RDW.`,
+        ),
     ),
     vehicleLength: zToNumber(
       z
@@ -104,7 +104,7 @@ export const useRdwInfoValidationSchema = () => {
           invalid_type_error: 'Voer een nummer in',
         })
         .min(0, 'Lengte moet minimaal 0 m zijn')
-        .max(22, 'Lengte mag maximaal 22 m zijn. Neem contact op met het RDW.')
+        .max(22, 'Lengte mag maximaal 22 m zijn. Neem contact op met het RDW.'),
     ),
     vehicleWidth: zToNumber(
       z
@@ -115,7 +115,7 @@ export const useRdwInfoValidationSchema = () => {
           invalid_type_error: 'Voer een nummer in',
         })
         .min(minWidth(), `Breedte moet minimaal ${minWidth()} m zijn`)
-        .max(3, 'Breedte mag maximaal 3 m zijn. Neem contact op met het RDW.')
+        .max(3, 'Breedte mag maximaal 3 m zijn. Neem contact op met het RDW.'),
     ),
   })
 

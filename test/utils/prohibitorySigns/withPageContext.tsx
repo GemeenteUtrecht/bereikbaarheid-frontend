@@ -21,7 +21,7 @@ export const initialState: ProhibitorySignsPageContextProps = {
 
 export const withPageContext = (
   component: ReactNode,
-  pageContextProps?: Partial<ProhibitorySignsPageContextProps>
+  pageContextProps?: Partial<ProhibitorySignsPageContextProps>,
 ) => (
   <ProhibitorySignsPageContext.Provider
     value={{

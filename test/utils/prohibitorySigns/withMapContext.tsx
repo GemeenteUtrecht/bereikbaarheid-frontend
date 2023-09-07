@@ -22,7 +22,7 @@ export const initialState: ProhibitorySignsMapContextProps = {
 
 export const withMapContext = (
   component: ReactNode,
-  mapContextProps?: Partial<ProhibitorySignsMapContextProps>
+  mapContextProps?: Partial<ProhibitorySignsMapContextProps>,
 ) =>
   withPageContext(
     <ProhibitorySignsMapContext.Provider
@@ -34,5 +34,5 @@ export const withMapContext = (
       <MapPanelProvider initialPosition={SnapPoint.Closed} variant="panel">
         {component}
       </MapPanelProvider>
-    </ProhibitorySignsMapContext.Provider>
+    </ProhibitorySignsMapContext.Provider>,
   )

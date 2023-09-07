@@ -23,7 +23,7 @@ export function useProhibitorySignsPageContext() {
   const context = useContext(ProhibitorySignsPageContext)
   if (context === undefined) {
     throw new Error(
-      'useProhibitorySignsPageContext must be within ProhibitorySignsPageProvider'
+      'useProhibitorySignsPageContext must be within ProhibitorySignsPageProvider',
     )
   }
 

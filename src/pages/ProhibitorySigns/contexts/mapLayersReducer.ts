@@ -23,7 +23,7 @@ export type mapLayerActionType =
 
 export const mapLayersReducer = (
   state: typeof mapLayersInitialState,
-  action: mapLayerActionType
+  action: mapLayerActionType,
 ) => {
   switch (action.type) {
     case 'ACTIVE_ROAD_NETWORK':

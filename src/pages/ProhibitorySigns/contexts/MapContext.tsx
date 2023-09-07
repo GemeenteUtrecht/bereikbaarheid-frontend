@@ -21,7 +21,7 @@ export function useProhibitorySignsMapContext() {
   const context = useContext(ProhibitorySignsMapContext)
   if (context === undefined) {
     throw new Error(
-      'useProhibitorySignsMapContext must be within ProhibitorySignsMapProvider'
+      'useProhibitorySignsMapContext must be within ProhibitorySignsMapProvider',
     )
   }
 

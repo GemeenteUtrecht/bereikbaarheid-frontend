@@ -20,7 +20,7 @@ export const usePermitsByLocation = () => {
       !!vehicle.axleWeight &&
       !!vehicle.weight,
     queryKey: ['permitsByLocation', address.lat, address.lon].concat(
-      Object.values(vehicle)
+      Object.values(vehicle),
     ),
     queryFn: ({ signal }) =>
       getPermitsByLocation(
@@ -28,7 +28,7 @@ export const usePermitsByLocation = () => {
         vehicle,
         rdwGeneralData![0].derived.maxAllowedWeight,
         rdwGeneralData![0].derived.vehicleType,
-        signal
+        signal,
       ),
     staleTime: 1000 * 60 * 10,
   })

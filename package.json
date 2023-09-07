@@ -39,10 +39,10 @@
     "@types/react": "^17",
     "@types/react-dom": "^17",
     "@types/styled-components": "^5.1.26",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "msw": "^1.2.3",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.3"
   },
   "proxy": "http://localhost:8000",
   "scripts": {
@@ -63,8 +63,7 @@
     "arrowParens": "avoid",
     "semi": false,
     "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5"
+    "tabWidth": 2
   },
   "browserslist": {
     "production": [

@@ -99,7 +99,7 @@ const ScenarioDisplayResult = () => {
           {permitsByLocation.data?.data &&
             Object.hasOwn(
               permitsByLocation.data?.data.attributes,
-              'afstandTotBestemmingInMeters'
+              'afstandTotBestemmingInMeters',
             ) && (
               <Row halign="flex-start" hasMargin={false}>
                 <Column span={12}>

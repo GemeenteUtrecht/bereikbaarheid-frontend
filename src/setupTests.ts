@@ -23,7 +23,7 @@ beforeAll(() => {
       console.error(
         'Found an unhandled %s request to %s',
         req.method,
-        req.url.href
+        req.url.href,
       )
     },
   })
