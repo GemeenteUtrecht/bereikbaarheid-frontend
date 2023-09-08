@@ -74,7 +74,7 @@ const FormScenarioStartSampleLicensePlates = ({
     }
 
     const selectedItem = licensePlates.find(
-      item => item.licensePlate === e.currentTarget.value
+      item => item.licensePlate === e.currentTarget.value,
     )
 
     if (selectedItem) {

@@ -32,7 +32,7 @@ const QUESTION_BODY = `Beschrijf zo volledig mogelijk waar je tegenaan loopt:
 
 const getMailtoLink = (recipient: string, subject: string, body: string) =>
   `mailto:${recipient}?subject=${encodeURIComponent(
-    subject
+    subject,
   )}&body=${encodeURIComponent(body)}`
 
 interface FeedbackModalProps {
@@ -80,7 +80,7 @@ const FeedbackModal = ({ open, setOpen }: FeedbackModalProps) => {
           href={getMailtoLink(
             FEEDBACK_RECIPIENT,
             FEEDBACK_SUBJECT,
-            FEEDBACK_BODY
+            FEEDBACK_BODY,
           )}
         >
           Onjuistheid terugmelden
@@ -101,7 +101,7 @@ const FeedbackModal = ({ open, setOpen }: FeedbackModalProps) => {
           href={getMailtoLink(
             QUESTION_RECIPIENT,
             QUESTION_SUBJECT,
-            QUESTION_BODY
+            QUESTION_BODY,
           )}
         >
           Vraag indienen

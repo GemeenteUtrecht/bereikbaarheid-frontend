@@ -7,7 +7,7 @@ export interface rdwFuelData {
 
 export function getFuelInfo(
   licensePlate: string,
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ): Promise<rdwFuelData[]> {
   return axios
     .get('https://opendata.rdw.nl/resource/8ys7-d773.json', {

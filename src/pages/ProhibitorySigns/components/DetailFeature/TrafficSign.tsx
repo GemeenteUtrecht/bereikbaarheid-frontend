@@ -78,7 +78,7 @@ const ProhibitorySignsDetailFeatureTrafficSign = () => {
                   as={RouterLink}
                   to={generatePath(getPathTo('ROAD_SECTION_DETAIL_PAGE'), {
                     wegvakId: String(
-                      Math.abs(currentTrafficSign!.properties.netwerkWegvakId)
+                      Math.abs(currentTrafficSign!.properties.netwerkWegvakId),
                     ),
                   })}
                 >

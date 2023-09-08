@@ -16,7 +16,7 @@ const ProhibitorySignsNearestRoadMarker = () => {
   const mapInstance = useMapInstance()
   const permitsByLocation = usePermitsByLocation()
   const [markerInstance, setMarkerInstance] = useState<L.Marker | undefined>(
-    undefined
+    undefined,
   )
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const ProhibitorySignsNearestRoadMarker = () => {
         'Getoonde ontheffingen aan de linkerkant <br> gelden voor deze locatie.',
         {
           direction: 'left',
-        }
+        },
       )
     }
   }, [mapInstance, markerInstance])

@@ -30,7 +30,7 @@ export const useRdwAxlesInfo = () => {
           Math,
           data.map(function (item: rdwAxlesData) {
             return Number(item.wettelijk_toegestane_maximum_aslast)
-          })
+          }),
         ),
       },
     }

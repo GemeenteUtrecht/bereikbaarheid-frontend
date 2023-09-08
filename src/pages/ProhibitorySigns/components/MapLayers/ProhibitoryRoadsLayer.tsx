@@ -30,7 +30,7 @@ const ProhibitorySignsProhibitoryRoadsLayer = () => {
         vehicle,
         rdwGeneralData![0].derived.maxAllowedWeight,
         rdwGeneralData![0].derived.vehicleType,
-        signal
+        signal,
       ),
   })
 

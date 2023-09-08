@@ -14,7 +14,7 @@ const ProhibitorySignsMapProvider = ({ children }: Props) => {
   const [activeBaseLayer, setActiveBaseLayer] = useState(topoBlackWhite.id)
   const [activeMapLayers, updateActiveMapLayers] = useReducer(
     mapLayersReducer,
-    mapLayersInitialState
+    mapLayersInitialState,
   )
   const [currentTrafficSign, setCurrentTrafficSign] = useState<
     TrafficSign | undefined

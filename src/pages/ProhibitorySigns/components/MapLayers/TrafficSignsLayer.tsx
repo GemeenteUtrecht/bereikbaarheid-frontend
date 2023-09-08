@@ -38,7 +38,7 @@ const ProhibitorySignsTrafficSignsLayer = () => {
         vehicle,
         rdwGeneralData![0].derived.maxAllowedWeight,
         rdwGeneralData![0].derived.vehicleType,
-        signal
+        signal,
       ),
   })
 
@@ -52,7 +52,7 @@ const ProhibitorySignsTrafficSignsLayer = () => {
 
   const findTrafficSign = (id: number) => {
     let sign = trafficSigns.data?.features.find(
-      item => item.properties.id === id
+      item => item.properties.id === id,
     )
 
     setCurrentTrafficSign(sign)

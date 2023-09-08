@@ -21,7 +21,7 @@ import ProhibitorySignsTrafficSignsLayer from './TrafficSignsLayer'
 
 function selectedBaseLayer(id: string) {
   return [aerialImages, topoBlackWhite, topoColorLight].find(
-    layer => layer.id === id
+    layer => layer.id === id,
   )
 }
 

@@ -16,7 +16,7 @@ export const wktPointToLocation = (wktPoint: string): LatLngLiteral => {
   }
 
   const [lat, lng] = sanitizeCoordinates(
-    pointMatch.map(str => Number.parseFloat(str)) as LatLngTuple
+    pointMatch.map(str => Number.parseFloat(str)) as LatLngTuple,
   )
 
   return {

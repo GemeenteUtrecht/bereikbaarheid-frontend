@@ -22,7 +22,7 @@ export function getPermitsByLocation(
   vehicle: Vehicle,
   vehicleMaxAllowedWeight: number,
   vehicleType: string,
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ): Promise<PermitsByLocationData> {
   return axios
     .get(`${API_ROOT}v1/rvv/locatie`, {

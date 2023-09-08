@@ -56,7 +56,7 @@ const ProhibitorySignsFormScenarioAddress = () => {
   const { setActiveStepWizard, address, setAddress } =
     useProhibitorySignsPageContext()
   const [addressOptions, setAddressOptions] = useState<PdokSuggestItem[] | []>(
-    []
+    [],
   )
   const {
     handleSubmit,

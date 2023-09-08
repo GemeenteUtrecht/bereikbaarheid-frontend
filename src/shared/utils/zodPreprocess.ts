@@ -8,6 +8,6 @@ import { z } from 'zod'
 export function zToNumber<T extends z.ZodTypeAny>(schema: T) {
   return z.preprocess(
     val => (val ? Number(String(val).replace(',', '.')) : undefined),
-    schema
+    schema,
   )
 }

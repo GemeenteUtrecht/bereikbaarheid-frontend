@@ -26,7 +26,7 @@ export function getRoadSectionsRvv(
   vehicle: Vehicle,
   vehicleMaxAllowedWeight: number,
   vehicleType: string,
-  signal: AbortSignal | undefined
+  signal: AbortSignal | undefined,
 ): Promise<ProhibitoryRoadsFeatureCollection> {
   return axios
     .get(`${API_ROOT}v1/rvv/wegvakken`, {

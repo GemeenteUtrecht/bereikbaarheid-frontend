@@ -11,7 +11,7 @@ type StyledViewerContainerProps = {
 }
 
 const StyledViewerContainer = styled(
-  ViewerContainer
+  ViewerContainer,
 ).attrs<StyledViewerContainerProps>(({ viewerHeight, leftOffset }) => ({
   style: {
     height: viewerHeight,
