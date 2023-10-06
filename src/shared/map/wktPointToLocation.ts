@@ -6,7 +6,10 @@
 import type { LatLngLiteral, LatLngTuple } from 'leaflet'
 
 const sanitizeCoordinates = (coordinates: LatLngTuple): LatLngTuple =>
-  coordinates.sort((a, b) => (a > b ? 1 : -1)).reverse() as LatLngTuple
+  coordinates
+    .filter((item): item is number => !!item)
+    .sort((a, b) => (a > b ? 1 : -1))
+    .reverse() as LatLngTuple
 
 export const wktPointToLocation = (wktPoint: string): LatLngLiteral => {
   const pointMatch = wktPoint.match(/\d+\.\d+/gi)
