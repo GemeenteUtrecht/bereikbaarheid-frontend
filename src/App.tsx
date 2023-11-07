@@ -17,6 +17,7 @@ const queryClient = new QueryClient({
 
 const router = createBrowserRouter(ROUTES, {
   future: {
+    v7_fetcherPersist: true,
     v7_normalizeFormMethod: true,
   },
 })
