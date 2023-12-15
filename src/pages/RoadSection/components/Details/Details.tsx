@@ -13,7 +13,7 @@ import {
 } from '@amsterdam/asc-ui'
 import styled from 'styled-components'
 
-import { RoadSection } from '../../../api/nationaalwegenbestand/wegvakken'
+import { RoadSection } from '../../../../api/nationaalwegenbestand/wegvakken'
 
 const StyledH1 = styled(Heading)`
   margin-bottom: ${themeSpacing(5)};
@@ -27,7 +27,7 @@ const StyledDescriptionList = styled(DescriptionList)`
   margin-bottom: 0;
 `
 
-const RoadSectionDetails = ({
+export const RoadSectionDetails = ({
   properties,
 }: Pick<RoadSection, 'properties'>) => {
   return (
@@ -82,5 +82,3 @@ const RoadSectionDetails = ({
     </>
   )
 }
-
-export default RoadSectionDetails

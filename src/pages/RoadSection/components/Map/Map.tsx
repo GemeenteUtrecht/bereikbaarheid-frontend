@@ -12,14 +12,14 @@ import styled, { useTheme } from 'styled-components'
 import type L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-import { RoadSection } from '../../../api/nationaalwegenbestand/wegvakken'
-import { MapStyle } from '../../../shared/map/mapStyle'
-import { defaultMapOptions } from '../../../shared/map/mapDefaults'
+import { RoadSection } from '../../../../api/nationaalwegenbestand/wegvakken'
+import { MapStyle } from '../../../../shared/map/mapStyle'
+import { defaultMapOptions } from '../../../../shared/map/mapDefaults'
 import {
   oneWayArrows,
   roadNetworkNoRestrictions,
   topoBlackWhite,
-} from '../../../shared/map/mapLayers'
+} from '../../../../shared/map/mapLayers'
 
 const StyledMap = styled(Map<typeof Map>)`
   height: 450px;
@@ -35,11 +35,11 @@ const MapContainer = styled.div`
   }
 `
 
-interface RoadSectionMapProps {
+export interface RoadSectionMapProps {
   roadSection: RoadSection
 }
 
-const RoadSectionMap = ({ roadSection }: RoadSectionMapProps) => {
+export const RoadSectionMap = ({ roadSection }: RoadSectionMapProps) => {
   const [mapInstance, setMapInstance] = useState<L.Map | null>(null)
   const [layerInstance, setLayerInstance] = useState<L.GeoJSON | null>(null)
   const theme = useTheme()
@@ -87,5 +87,3 @@ const RoadSectionMap = ({ roadSection }: RoadSectionMapProps) => {
     </MapContainer>
   )
 }
-
-export default RoadSectionMap
