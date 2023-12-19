@@ -3,8 +3,10 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
+// @ts-ignore
+import matchMediaPolyfill from 'mq-polyfill'
 
-import { server } from './../test/server'
+import { server } from '../test/server'
 
 global.matchMedia =
   global.matchMedia ||
@@ -16,8 +18,30 @@ global.matchMedia =
     }
   }
 
-// Establish API mocking before all tests.
+// Leaflet uses SVG renderer which JSDOM does not support SVG to a full extent.
+// In particular createSVGRect is not supported.
+// thanks to this SO answer: https://stackoverflow.com/a/54384719/1908609
+let createElementNSOrig = global.document.createElementNS
+// @ts-ignore
+global.document.createElementNS = function (
+  namespaceURI: string,
+  qualifiedName: string,
+) {
+  if (
+    namespaceURI === 'http://www.w3.org/2000/svg' &&
+    qualifiedName === 'svg'
+  ) {
+    let element = createElementNSOrig.apply(this, [namespaceURI, qualifiedName])
+    // @ts-ignore
+    element.createSVGRect = function () {}
+    return element
+  }
+
+  return createElementNSOrig.apply(this, [namespaceURI, qualifiedName])
+}
+
 beforeAll(() => {
+  // Establish API mocking before all tests.
   server.listen({
     onUnhandledRequest(req) {
       console.error(
@@ -27,6 +51,17 @@ beforeAll(() => {
       )
     },
   })
+
+  // default viewport is 1024x768
+  matchMediaPolyfill(window)
+  window.resizeTo = function resizeTo(width, height) {
+    Object.assign(this, {
+      innerWidth: width,
+      innerHeight: height,
+      outerWidth: width,
+      outerHeight: height,
+    }).dispatchEvent(new this.Event('resize'))
+  }
 })
 
 afterEach(() => {

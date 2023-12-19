@@ -1,0 +1,41 @@
+{
+    "response": {
+        "numFound": 0,
+        "start": 0,
+        "maxScore": 0.0,
+        "numFoundExact": true,
+        "docs": []
+    },
+    "highlighting": {},
+    "spellcheck": {
+        "suggestions": [
+            "annasf",
+            {
+                "numFound": 5,
+                "startOffset": 0,
+                "endOffset": 6,
+                "suggestion": [
+                    "annast",
+                    "annaf",
+                    "annas",
+                    "annala",
+                    "annapa"
+                ]
+            },
+            "adres",
+            {
+                "numFound": 5,
+                "startOffset": 16,
+                "endOffset": 21,
+                "suggestion": [
+                    "aders",
+                    "aires",
+                    "ardes",
+                    "arres",
+                    "ares"
+                ]
+            }
+        ],
+        "collations": []
+    }
+}

@@ -3,8 +3,8 @@ import { ErrorMessage, Input, Label, Paragraph } from '@amsterdam/asc-ui'
 import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
 import { useRdwInfo } from '../../../hooks/useRdwInfo'
 import InputWithSuffix from '../../../../../shared/components/InputWithSuffix'
-import { FormRdwInfoInputProps, FormRdwInfoInputs } from './FormRdwInfo'
-import { RdwInfoFormColumn, RdwInfoFormRow } from './FormRdwInfoStyle'
+import { FormRdwInfoInputProps, FormRdwInfoInputs } from './Form'
+import { RdwInfoFormColumn, RdwInfoFormRow } from './FormStyle'
 
 const FormRdwInfoVehicleLength = ({
   errors,
@@ -49,6 +49,7 @@ const FormRdwInfoVehicleLength = ({
       <RdwInfoFormColumn span={4}>
         <InputWithSuffix suffix="m">
           <Input
+            data-testid="rdw-form-vehicle-length"
             id="vehicleLength"
             error={Boolean(errors.vehicleLength)}
             placeholder="0.00"

@@ -3,6 +3,8 @@ import { Feature, FeatureCollection } from 'geojson'
 
 import { API_ROOT } from '../index'
 
+export const ENDPOINT = `${API_ROOT}v1/wegvakken/`
+
 interface NwbCorrection {
   attribuutnaam: string
   nwbWaarde: string | null
@@ -44,6 +46,6 @@ export function getRoadSection(
   }
 
   return axios
-    .get(`${API_ROOT}v1/wegvakken/${wegvakId}`, { signal })
+    .get(ENDPOINT + wegvakId, { signal })
     .then(response => response.data)
 }

@@ -1,0 +1,75 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              5.120964125063722,
+              52.08904790286375
+            ],
+            [
+              5.120991080200317,
+              52.08899700079834
+            ],
+            [
+              5.121063543849485,
+              52.0888361234587
+            ],
+            [
+              5.121166718855982,
+              52.08857707752334
+            ],
+            [
+              5.121214848659585,
+              52.088439145085644
+            ],
+            [
+              5.12125176422438,
+              52.08836573568874
+            ]
+          ]
+        ],
+        "crs": {
+          "properties": {
+            "name": "EPSG:4326"
+          },
+          "type": "name"
+        },
+        "type": "MultiLineString"
+      },
+      "properties": {
+        "administratieveRichting": null,
+        "baansubsoortCode": "FP",
+        "gemeenteId": 344,
+        "hectoletter": "#",
+        "junctieIdBegin": 273311184,
+        "junctieIdEind": 273311057,
+        "relatievePositieCode": "#",
+        "rijrichting": "B",
+        "straatNaam": "Oudegracht",
+        "straatNaamBron": "BAG schrijfwijze",
+        "toegepasteCorrecties": [
+          {
+            "attribuutnaam": "baansubsoortCode",
+            "gecorrigeerdNaar": "FP",
+            "nwbWaarde": null
+          },
+          {
+            "attribuutnaam": "rijrichting",
+            "gecorrigeerdNaar": "B",
+            "nwbWaarde": "H"
+          }
+        ],
+        "wegbeheerdersoort": "G",
+        "wegdeelletter": "#",
+        "wegnummer": null,
+        "wegvakBegindatum": "2020-12-01",
+        "wegvakId": 273311154,
+        "woonplaats": "Utrecht"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

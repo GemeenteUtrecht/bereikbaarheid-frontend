@@ -3,7 +3,9 @@ import { Feature, FeatureCollection, Point } from 'geojson'
 
 import { Vehicle } from '../../../../pages/ProhibitorySigns/types/vehicle'
 
-const API_ROOT = process.env.REACT_APP_API_ROOT
+import { API_ROOT } from '../../index'
+
+export const ENDPOINT = `${API_ROOT}v1/rvv/verkeersborden`
 
 export type TrafficSignCategory =
   | 'verbod met uitzondering'
@@ -52,7 +54,7 @@ export function getTrafficSigns(
   })
 
   return trafficSignsRequest
-    .get(`${API_ROOT}v1/rvv/verkeersborden`, {
+    .get(ENDPOINT, {
       params: {
         categorie: trafficSignCategories,
         voertuigAslast: vehicle.axleWeight,

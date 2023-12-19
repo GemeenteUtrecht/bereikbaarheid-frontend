@@ -10,7 +10,7 @@ const ScenarioDisplay = ({ ...otherProps }: MapPanelContentProps) => {
   const { showScenarioWizard } = useProhibitorySignsPageContext()
 
   return (
-    <MapPanelContent {...otherProps}>
+    <MapPanelContent data-testid="scenario-display" {...otherProps}>
       {/* only display scenario outcome when needed info is available
           for hooks embedded in included components */}
       {!showScenarioWizard && (

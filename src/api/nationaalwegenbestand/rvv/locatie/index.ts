@@ -6,6 +6,8 @@ import { Vehicle } from '../../../../pages/ProhibitorySigns/types/vehicle'
 
 import { API_ROOT } from '../../index'
 
+export const ENDPOINT = `${API_ROOT}v1/rvv/locatie`
+
 interface PermitsByLocationData {
   data: {
     attributes: {
@@ -25,7 +27,7 @@ export function getPermitsByLocation(
   signal: AbortSignal | undefined,
 ): Promise<PermitsByLocationData> {
   return axios
-    .get(`${API_ROOT}v1/rvv/locatie`, {
+    .get(ENDPOINT, {
       params: {
         lat: address.lat,
         lon: address.lon,

@@ -16,14 +16,14 @@ import { ChangeEvent, MouseEvent, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import styled from 'styled-components'
 
-import { suggest, PdokSuggestItem } from '../../../../api/pdok/suggest'
-import { useProhibitorySignsPageContext } from '../../contexts/PageContext'
-import { FormLabel } from '../../../../shared/components/FormLabel'
-import { wktPointToLocation } from '../../../../shared/map/wktPointToLocation'
-import { theme } from '../../../../styles/Theme'
-import { Address } from '../../../../types/address'
+import { suggest, PdokSuggestItem } from '../../../../../api/pdok/suggest'
+import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
+import { FormLabel } from '../../../../../shared/components/FormLabel'
+import { wktPointToLocation } from '../../../../../shared/map/wktPointToLocation'
+import { theme } from '../../../../../styles/Theme'
+import { Address } from '../../../../../types/address'
 
-import ScenarioWizardNav from './ScenarioWizardNav'
+import ScenarioWizardNav from '../ScenarioWizardNav'
 
 const AddressOptionsContainer = styled.div`
   min-height: 220px;
@@ -52,7 +52,7 @@ type FormScenarioAddressInputs = {
   searchAddress: Address['label']
 }
 
-const ProhibitorySignsFormScenarioAddress = () => {
+export const ProhibitorySignsFormScenarioAddress = () => {
   const { setActiveStepWizard, address, setAddress } =
     useProhibitorySignsPageContext()
   const [addressOptions, setAddressOptions] = useState<PdokSuggestItem[] | []>(
@@ -184,5 +184,3 @@ const ProhibitorySignsFormScenarioAddress = () => {
     </form>
   )
 }
-
-export default ProhibitorySignsFormScenarioAddress
