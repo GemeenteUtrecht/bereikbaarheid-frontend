@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        job: [lint, build]
+        job: [lint, test, build]
 
     steps:
       - name: Check out repository
