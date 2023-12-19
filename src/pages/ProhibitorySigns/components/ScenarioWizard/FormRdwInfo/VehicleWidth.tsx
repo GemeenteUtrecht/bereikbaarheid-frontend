@@ -5,8 +5,8 @@ import InputWithSuffix from '../../../../../shared/components/InputWithSuffix'
 import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
 import { useRdwInfo } from '../../../hooks/useRdwInfo'
 
-import { FormRdwInfoInputProps, FormRdwInfoInputs } from './FormRdwInfo'
-import { RdwInfoFormColumn, RdwInfoFormRow } from './FormRdwInfoStyle'
+import { FormRdwInfoInputProps, FormRdwInfoInputs } from './Form'
+import { RdwInfoFormColumn, RdwInfoFormRow } from './FormStyle'
 
 const FormRdwInfoVehicleWidth = ({
   errors,
@@ -51,6 +51,7 @@ const FormRdwInfoVehicleWidth = ({
       <RdwInfoFormColumn span={4}>
         <InputWithSuffix suffix="m">
           <Input
+            data-testid="rdw-form-vehicle-width"
             id="vehicleWidth"
             error={Boolean(errors.vehicleWidth)}
             placeholder="0.00"

@@ -4,6 +4,9 @@
 
 import axios from 'axios'
 
+export const ENDPOINT =
+  'https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest'
+
 export interface PdokSuggestItem {
   centroide_ll: string
   huis_nlt: string
@@ -27,7 +30,7 @@ export const pdokSuggestItemFieldList = ['id', 'weergavenaam', 'centroide_ll']
 
 export function suggest(searchString: string): Promise<PdokSuggestItems> {
   return axios
-    .get('https://api.pdok.nl/bzk/locatieserver/search/v3_1/suggest', {
+    .get(ENDPOINT, {
       params: {
         q: `${searchString} and type:adres`,
         fl: pdokSuggestItemFieldList.join(','),

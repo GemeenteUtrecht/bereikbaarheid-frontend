@@ -1,0 +1,24 @@
+{
+  "data": {
+    "attributes": {
+      "afstandTotBestemmingInMeters": 6,
+      "behoeftOntheffingRvv": false,
+      "locatie": {
+        "coordinates": [
+          5.099953390917054,
+          52.10904332286939
+        ],
+        "crs": {
+          "properties": {
+            "name": "EPSG:4326"
+          },
+          "type": "name"
+        },
+        "type": "Point"
+      }
+    },
+    "id": 270315072
+  },
+  "errors": [],
+  "meta": {}
+}

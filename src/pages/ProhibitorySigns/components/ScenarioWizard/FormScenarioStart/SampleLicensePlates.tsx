@@ -3,8 +3,8 @@ import { FormEvent, useState } from 'react'
 import { UseFormSetValue } from 'react-hook-form'
 import styled from 'styled-components'
 
-import { useProhibitorySignsPageContext } from '../../contexts/PageContext'
-import { FormScenarioStartInputs } from './FormScenarioStart'
+import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
+import { FormScenarioStartInputs } from './Form'
 
 const licensePlates = [
   {
@@ -52,7 +52,7 @@ type ExpertModeLicensePlatesProps = {
   setValue: UseFormSetValue<FormScenarioStartInputs>
 }
 
-const FormScenarioStartSampleLicensePlates = ({
+export const FormScenarioStartSampleLicensePlates = ({
   setValue,
 }: ExpertModeLicensePlatesProps) => {
   const { vehicle, setVehicle } = useProhibitorySignsPageContext()
@@ -86,6 +86,7 @@ const FormScenarioStartSampleLicensePlates = ({
   return (
     <StyledSelect
       id="expertModeLicensePlate"
+      data-testid="vehicle-select-list"
       defaultValue={selected}
       onChange={presetFormValues}
     >
@@ -101,5 +102,3 @@ const FormScenarioStartSampleLicensePlates = ({
     </StyledSelect>
   )
 }
-
-export default FormScenarioStartSampleLicensePlates

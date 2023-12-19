@@ -13,8 +13,8 @@ import InputWithSuffix from '../../../../../shared/components/InputWithSuffix'
 import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
 import { useRdwInfo } from '../../../hooks/useRdwInfo'
 
-import { FormRdwInfoInputProps, FormRdwInfoInputs } from './FormRdwInfo'
-import { RdwInfoFormColumn, RdwInfoFormRow } from './FormRdwInfoStyle'
+import { FormRdwInfoInputProps, FormRdwInfoInputs } from './Form'
+import { RdwInfoFormColumn, RdwInfoFormRow } from './FormStyle'
 
 const StyledFormRow = styled(RdwInfoFormRow)`
   border-top: 1px solid ${props => props.theme.colors.tint?.level6};
@@ -68,6 +68,7 @@ const FormRdwInfoVehicleTotalWeight = ({
       <RdwInfoFormColumn span={4}>
         <InputWithSuffix displayAsText suffix="kg">
           <Input
+            data-testid="rdw-form-vehicle-total-weight"
             id="vehicleTotalWeight"
             disabled
             error={Boolean(errors.vehicleTotalWeight)}

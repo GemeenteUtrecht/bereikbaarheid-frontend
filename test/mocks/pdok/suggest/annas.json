@@ -1,0 +1,116 @@
+{
+    "response": {
+        "numFound": 52,
+        "start": 0,
+        "maxScore": 3.65248,
+        "numFoundExact": true,
+        "docs": [
+            {
+                "weergavenaam": "Annastraat 3A, 3512GP Utrecht",
+                "id": "adr-da79edac89f72e500bbd511b9f8db33e",
+                "centroide_ll": "POINT(5.12053157 52.09192137)"
+            },
+            {
+                "weergavenaam": "Annastraat 4A, 3512GR Utrecht",
+                "id": "adr-883d9708a29e528a6d3290cd2582fc13",
+                "centroide_ll": "POINT(5.1206529 52.09215272)"
+            },
+            {
+                "weergavenaam": "Annastraat 4B, 3512GR Utrecht",
+                "id": "adr-3b00fd7a115770868ba24c1003456109",
+                "centroide_ll": "POINT(5.12063208 52.09215041)"
+            },
+            {
+                "weergavenaam": "Annastraat 4C, 3512GR Utrecht",
+                "id": "adr-ab5637d7c7f8beaa8d15e024f4ee5fb4",
+                "centroide_ll": "POINT(5.12061125 52.09214811)"
+            },
+            {
+                "weergavenaam": "Annastraat 4D, 3512GR Utrecht",
+                "id": "adr-876e7c81a28b50674dc7b63b941e5e9b",
+                "centroide_ll": "POINT(5.12059043 52.09214582)"
+            },
+            {
+                "weergavenaam": "Annastraat 4E, 3512GR Utrecht",
+                "id": "adr-c9f4abac76e6b602c6303e97b3539318",
+                "centroide_ll": "POINT(5.12056959 52.09214351)"
+            },
+            {
+                "weergavenaam": "Annastraat 4G, 3512GR Utrecht",
+                "id": "adr-7bbd7292761f0c6b214d24a54a4ac338",
+                "centroide_ll": "POINT(5.12054877 52.09214121)"
+            },
+            {
+                "weergavenaam": "Annastraat 5A, 3512GP Utrecht",
+                "id": "adr-5018f4fbe5ae39cb8ca5e1045866f506",
+                "centroide_ll": "POINT(5.12052199 52.09202393)"
+            },
+            {
+                "weergavenaam": "Annastraat 5B, 3512GP Utrecht",
+                "id": "adr-9e43786c662610d9fd252c5761412009",
+                "centroide_ll": "POINT(5.12050308 52.09202124)"
+            },
+            {
+                "weergavenaam": "Annastraat 5C, 3512GP Utrecht",
+                "id": "adr-b4e2fa409d8307e70802731225ab7d1a",
+                "centroide_ll": "POINT(5.12048414 52.09201899)"
+            }
+        ]
+    },
+    "highlighting": {
+        "adr-da79edac89f72e500bbd511b9f8db33e": {
+            "suggest": [
+                "<b>Annastraat</b> 3A, 3512GP Utrecht"
+            ]
+        },
+        "adr-883d9708a29e528a6d3290cd2582fc13": {
+            "suggest": [
+                "<b>Annastraat</b> 4A, 3512GR Utrecht"
+            ]
+        },
+        "adr-3b00fd7a115770868ba24c1003456109": {
+            "suggest": [
+                "<b>Annastraat</b> 4B, 3512GR Utrecht"
+            ]
+        },
+        "adr-ab5637d7c7f8beaa8d15e024f4ee5fb4": {
+            "suggest": [
+                "<b>Annastraat</b> 4C, 3512GR Utrecht"
+            ]
+        },
+        "adr-876e7c81a28b50674dc7b63b941e5e9b": {
+            "suggest": [
+                "<b>Annastraat</b> 4D, 3512GR Utrecht"
+            ]
+        },
+        "adr-c9f4abac76e6b602c6303e97b3539318": {
+            "suggest": [
+                "<b>Annastraat</b> 4E, 3512GR Utrecht"
+            ]
+        },
+        "adr-7bbd7292761f0c6b214d24a54a4ac338": {
+            "suggest": [
+                "<b>Annastraat</b> 4G, 3512GR Utrecht"
+            ]
+        },
+        "adr-5018f4fbe5ae39cb8ca5e1045866f506": {
+            "suggest": [
+                "<b>Annastraat</b> 5A, 3512GP Utrecht"
+            ]
+        },
+        "adr-9e43786c662610d9fd252c5761412009": {
+            "suggest": [
+                "<b>Annastraat</b> 5B, 3512GP Utrecht"
+            ]
+        },
+        "adr-b4e2fa409d8307e70802731225ab7d1a": {
+            "suggest": [
+                "<b>Annastraat</b> 5C, 3512GP Utrecht"
+            ]
+        }
+    },
+    "spellcheck": {
+        "suggestions": [],
+        "collations": []
+    }
+}

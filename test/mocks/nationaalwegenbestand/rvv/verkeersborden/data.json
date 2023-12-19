@@ -1,0 +1,32 @@
+{
+	"features": [
+        {
+          "geometry": {
+            "coordinates": [
+              5.112518722069883,
+              52.09462244348518
+            ],
+            "crs": {
+              "properties": {
+                "name": "EPSG:4326"
+              },
+              "type": "name"
+            },
+            "type": "Point"
+          },
+          "properties": {
+            "bordWaarde": 9,
+            "categorie": "verplichting",
+            "id": 11782936,
+            "kijkrichting": "Z",
+            "ndwId": "af415b96-88d3-494d-95cb-0eb893da8bda",
+            "netwerkWegvakId": 600393126,
+            "onderbordTekst": null,
+            "rvvCode": "C17",
+            "straatNaam": "Dirck van Zuylenstraat",
+            "urlNaarAfbeelding": "https://signimages.ipsm.nl/in/af4/af4bca13-0fac-40b9-b853-d36a39b2190d_1673451406.jpg"
+          },
+          "type": "Feature"
+        }
+	]
+}

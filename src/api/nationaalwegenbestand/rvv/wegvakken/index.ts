@@ -10,6 +10,8 @@ import { Vehicle } from '../../../../pages/ProhibitorySigns/types/vehicle'
 
 import { API_ROOT } from '../../index'
 
+export const ENDPOINT = `${API_ROOT}v1/rvv/wegvakken`
+
 interface ProhibitoryRoad extends Feature {
   geometry: LineString | MultiLineString
   properties: {
@@ -29,7 +31,7 @@ export function getRoadSectionsRvv(
   signal: AbortSignal | undefined,
 ): Promise<ProhibitoryRoadsFeatureCollection> {
   return axios
-    .get(`${API_ROOT}v1/rvv/wegvakken`, {
+    .get(ENDPOINT, {
       params: {
         voertuigAslast: vehicle.axleWeight,
         voertuigBreedte: vehicle.width,

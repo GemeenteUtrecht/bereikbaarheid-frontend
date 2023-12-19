@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Header, { HeaderProps } from '../../../shared/components/Header'
 
-interface ProhibitorySignsHeaderProps extends HeaderProps {
+export interface ProhibitorySignsHeaderProps extends HeaderProps {
   setOpenFeedbackModal: Dispatch<SetStateAction<boolean>>
 }
 
