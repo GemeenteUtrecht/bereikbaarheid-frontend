@@ -1,6 +1,6 @@
 {
   "name": "utrecht-bereikbaarheid-frontend",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@amsterdam/arm-core": "^1.0.0",
@@ -8,19 +8,18 @@
     "@amsterdam/asc-assets": "^0.38.0",
     "@amsterdam/asc-ui": "^0.38.0",
     "@amsterdam/react-maps": "^1.1.1",
-    "@hookform/resolvers": "^3.3.2",
+    "@hookform/resolvers": "^3.3.4",
     "@react-spring/web": "^9.7.3",
     "@tanstack/react-query": "^4.35.7",
     "@tanstack/react-query-devtools": "^4.35.7",
     "axios": "^1.6",
-    "date-fns": "^2.30.0",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.48.2",
-    "react-router-dom": "^6.20.1",
+    "react-hook-form": "^7.49.2",
+    "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.10",
     "typescript": "^4.8.4",
@@ -29,7 +28,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^14.5.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/geojson": "^7946.0.13",
     "@types/jest": "^28.1.6",
     "@types/leaflet": "^1.9.8",
@@ -40,11 +39,11 @@
     "@types/react-dom": "^17",
     "@types/styled-components": "5.1.29",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "^5.1.2",
     "http-proxy-middleware": "^2.0.6",
     "mq-polyfill": "^1.1.8",
     "msw": "^1.3.2",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.1"
   },
   "scripts": {
     "start": "GENERATE_SOURCEMAP=false react-scripts start",
