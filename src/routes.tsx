@@ -2,6 +2,7 @@ import { Navigate, RouteObject } from 'react-router-dom'
 
 import ErrorPage from './pages/ErrorPage'
 import ProhibitorySignsPage from './pages/ProhibitorySigns/ProhibitorySignsPage'
+import RestrictionsPage from './pages/Restrictions/RestrictionsPage'
 import RoadSectionPage from './pages/RoadSection/RoadSectionPage'
 
 export const ROUTES: RouteObject[] = [
@@ -14,6 +15,11 @@ export const ROUTES: RouteObject[] = [
     path: '/bereikbaarheid',
     id: 'ACCESSIBILITY_MAP',
     element: <ProhibitorySignsPage />,
+  },
+  {
+    path: '/beperkingen',
+    id: 'RESTRICTIONS_MAP',
+    element: <RestrictionsPage />,
   },
   {
     path: '/wegvak/:wegvakId',
