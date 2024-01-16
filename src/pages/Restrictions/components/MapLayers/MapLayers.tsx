@@ -9,6 +9,7 @@ import {
 } from '../../../../shared/map/mapLayers'
 
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
+import { RestrictionsMapLayerVehicleWidth } from './VehicleWidth'
 
 function selectedBaseLayer(id: string) {
   return [aerialImages, topoBlackWhite].find(layer => layer.id === id)
@@ -19,8 +20,10 @@ export const RestrictionsMapLayers = () => {
 
   return (
     <>
+      <RestrictionsMapLayerVehicleWidth />
+
       <TileLayer
-        options={roadNetworkNoRestrictions.options}
+        options={{ ...roadNetworkNoRestrictions.options, opacity: 0.65 }}
         args={[roadNetworkNoRestrictions.url]}
       />
 

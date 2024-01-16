@@ -1,13 +1,10 @@
-export const prohibitoryRoadsLayerId = 'prohibitoryRoads'
-export const trafficSignsLayerId = 'trafficSigns'
+export const vehicleWidthLayerId = 'vehicleWidth'
 
 export const mapLayersInitialState = {
-  [prohibitoryRoadsLayerId]: false,
-  [trafficSignsLayerId]: false,
+  [vehicleWidthLayerId]: true,
 }
 
-// layer ids are equal to layer id in shared/map/mapLayers
-export const layerIds = ['prohibitoryRoads', 'trafficSigns'] as const
+export const layerIds = ['vehicleWidth'] as const
 
 export type mapLayerActionType =
   | { type: 'TOGGLE'; layerId: (typeof layerIds)[number] }
