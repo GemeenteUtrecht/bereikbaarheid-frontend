@@ -4,30 +4,33 @@ import { MouseEvent } from 'react'
 import { MapLegendItem } from '../../../../shared/components/MapLegendItem'
 import { LegendItemsWrapper } from '../../../../shared/components/MapLegendStyles'
 
-import { vehicleWidthLayerId } from '../../contexts/mapLayersReducer'
+import { vehicleAxleWeightLayerId } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
 
-import { vehicleWidthCategories } from '../MapLayers/VehicleWidth'
+import { vehicleAxleWeightCategories } from '../MapLayers/VehicleAxleWeight'
 
-export const RestrictionsMapLegendVehicleWidth = () => {
+export const RestrictionsMapLegendVehicleAxleWeight = () => {
   const { activeMapLayers, updateActiveMapLayers } = useRestrictionsMapContext()
-  const categories = [...vehicleWidthCategories].reverse()
+  const categories = [...vehicleAxleWeightCategories].reverse()
   const onClick = (e: MouseEvent<HTMLInputElement>) => {
-    updateActiveMapLayers({ type: 'ACTIVATE', layerId: vehicleWidthLayerId })
+    updateActiveMapLayers({
+      type: 'ACTIVATE',
+      layerId: vehicleAxleWeightLayerId,
+    })
     e.currentTarget.blur()
   }
 
   return (
     <>
-      <Label htmlFor={`maplegend-${vehicleWidthLayerId}`} label="Breedte">
+      <Label htmlFor={`maplegend-${vehicleAxleWeightLayerId}`} label="Aslast">
         <Radio
-          id={`maplegend-${vehicleWidthLayerId}`}
-          checked={activeMapLayers[vehicleWidthLayerId]}
+          id={`maplegend-${vehicleAxleWeightLayerId}`}
+          checked={activeMapLayers[vehicleAxleWeightLayerId]}
           onClick={onClick}
         />
       </Label>
 
-      {activeMapLayers[vehicleWidthLayerId] && (
+      {activeMapLayers[vehicleAxleWeightLayerId] && (
         <CompactThemeProvider>
           <LegendItemsWrapper>
             {categories.map(category => (
