@@ -1,0 +1,1 @@
+export { RestrictionsMapLegend } from './MapLegend'
