@@ -5,10 +5,11 @@ import { getRoadSectionsRvv } from '../../../../api/nationaalwegenbestand/rvv/we
 
 import { vehicleWidthLayerId } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
+import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'
 import { defaultVehicle } from '../../defaultVehicle'
 
 // determines the order of drawing GeoJSON layers
-export const vehicleWidthCategories = [
+export const vehicleWidthCategories: VehiclePropertyCategory[] = [
   { color: '#da3417', label: '2,3 m', value: 2.31 },
   { color: '#f59309', label: '2,1 m', value: 2.11 },
 ]

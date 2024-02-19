@@ -5,11 +5,12 @@ import { getRoadSectionsRvv } from '../../../../api/nationaalwegenbestand/rvv/we
 
 import { vehicleAxleWeightLayerId } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
+import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'
 import { defaultVehicle } from '../../defaultVehicle'
 
 // determines the order of drawing GeoJSON layers
 //  categorieen: 2 ton, 3.5 ton, 4 ton, 5 ton, 8 ton, 9 ton
-export const vehicleAxleWeightCategories = [
+export const vehicleAxleWeightCategories: VehiclePropertyCategory[] = [
   { color: 'rgb(197,59,47)', label: '9 t', value: 9001 },
   { color: 'rgb(229, 153, 93)', label: '8 t', value: 8001 },
   { color: 'rgb(0, 195, 169)', label: '5 t', value: 5001 },

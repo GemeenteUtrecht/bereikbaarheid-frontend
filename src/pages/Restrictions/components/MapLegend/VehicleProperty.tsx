@@ -4,33 +4,42 @@ import { MouseEvent } from 'react'
 import { MapLegendItem } from '../../../../shared/components/MapLegendItem'
 import { LegendItemsWrapper } from '../../../../shared/components/MapLegendStyles'
 
-import { vehicleWidthLayerId } from '../../contexts/mapLayersReducer'
+import { layerIds } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
+import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'
 
-import { vehicleWidthCategories } from '../MapLayers/VehicleWidth'
+interface RestrictionsMapLegendVehiclePropertyProps {
+  categories: VehiclePropertyCategory[]
+  layerId: (typeof layerIds)[number]
+  label: string
+}
 
-export const RestrictionsMapLegendVehicleWidth = () => {
+export const RestrictionsMapLegendVehicleProperty = ({
+  categories,
+  layerId,
+  label,
+}: RestrictionsMapLegendVehiclePropertyProps) => {
   const { activeMapLayers, updateActiveMapLayers } = useRestrictionsMapContext()
-  const categories = [...vehicleWidthCategories].reverse()
+  const legendCategories = [...categories].reverse()
   const onClick = (e: MouseEvent<HTMLInputElement>) => {
-    updateActiveMapLayers({ type: 'ACTIVATE', layerId: vehicleWidthLayerId })
+    updateActiveMapLayers({ type: 'ACTIVATE', layerId: layerId })
     e.currentTarget.blur()
   }
 
   return (
     <>
-      <Label htmlFor={`maplegend-${vehicleWidthLayerId}`} label="Breedte">
+      <Label htmlFor={`maplegend-${layerId}`} label={label}>
         <Radio
-          id={`maplegend-${vehicleWidthLayerId}`}
-          checked={activeMapLayers[vehicleWidthLayerId]}
+          id={`maplegend-${layerId}`}
+          checked={activeMapLayers[layerId]}
           onClick={onClick}
         />
       </Label>
 
-      {activeMapLayers[vehicleWidthLayerId] && (
+      {activeMapLayers[layerId] && (
         <CompactThemeProvider>
           <LegendItemsWrapper>
-            {categories.map(category => (
+            {legendCategories.map(category => (
               <MapLegendItem
                 key={category.value}
                 color={category.color}
