@@ -7,8 +7,10 @@ import {
   vehicleWidthLayerId,
 } from '../../contexts/mapLayersReducer'
 
-import { vehicleAxleWeightCategories } from '../MapLayers/VehicleAxleWeight'
-import { vehicleWidthCategories } from '../MapLayers/VehicleWidth'
+import {
+  axleWeightCategories,
+  widthCategories,
+} from '../../vehiclePropertyCategories'
 
 import { RestrictionsMapLegendBaseLayers } from './BaseLayers'
 import { RestrictionsMapLegendRoadNetwork } from './RoadNetwork'
@@ -33,13 +35,13 @@ export const RestrictionsMapLegend = () => {
         <Column span={12}>
           <RadioGroup name="maplayers-vehicle-properties">
             <RestrictionsMapLegendVehicleProperty
-              categories={vehicleAxleWeightCategories}
+              categories={axleWeightCategories}
               layerId={vehicleAxleWeightLayerId}
               label="Aslast"
             />
 
             <RestrictionsMapLegendVehicleProperty
-              categories={vehicleWidthCategories}
+              categories={widthCategories}
               layerId={vehicleWidthLayerId}
               label="Breedte"
             />

@@ -9,8 +9,16 @@ import {
 } from '../../../../shared/map/mapLayers'
 
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
-import { RestrictionsMapLayerVehicleAxleWeight } from './VehicleAxleWeight'
-import { RestrictionsMapLayerVehicleWidth } from './VehicleWidth'
+import {
+  vehicleAxleWeightLayerId,
+  vehicleWidthLayerId,
+} from '../../contexts/mapLayersReducer'
+import {
+  axleWeightCategories,
+  widthCategories,
+} from '../../vehiclePropertyCategories'
+
+import { RestrictionsMapLayerVehicleProperty } from './VehicleProperty'
 
 function selectedBaseLayer(id: string) {
   return [aerialImages, topoBlackWhite].find(layer => layer.id === id)
@@ -21,9 +29,17 @@ export const RestrictionsMapLayers = () => {
 
   return (
     <>
-      <RestrictionsMapLayerVehicleAxleWeight />
+      <RestrictionsMapLayerVehicleProperty
+        categories={axleWeightCategories}
+        layerId={vehicleAxleWeightLayerId}
+        propertyName="axleWeight"
+      />
 
-      <RestrictionsMapLayerVehicleWidth />
+      <RestrictionsMapLayerVehicleProperty
+        categories={widthCategories}
+        layerId={vehicleWidthLayerId}
+        propertyName="width"
+      />
 
       <TileLayer
         options={{ ...roadNetworkNoRestrictions.options, opacity: 0.5 }}
