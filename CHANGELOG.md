@@ -4,7 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.4.1...HEAD)
+## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.5.0...HEAD)
+
+
+## [v0.5.0 - 2024-02-21](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.4.1...v0.5.0)
+
+### Added
+- Restrictions: vehicle height, length and total weight map layers
+
+### Changed
+- Restrictions: use the same color palette for all thematic layers
+- make MapLegendItem's `margin-left` property configurable
+
+### Fixed
+- Restrictions: reflect active thematic layer in label for no restrictions map layer
+- Restrictions: refactor vehicle property map layer and legend to component
 
 
 ## [v0.4.1 - 2024-02-12](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.4.0...v0.4.1)

@@ -9,9 +9,13 @@ const LegendItemWrapper = styled.div`
     margin-bottom: ${themeSpacing(1)};
   }
 `
-const LegendItemSymbol = styled.div<{ $color: string; $height: string }>`
+const LegendItemSymbol = styled.div<{
+  $color: string
+  $height: string
+  $marginLeft: number
+}>`
   background-color: ${props => props.$color};
-  margin-left: ${themeSpacing(10)};
+  margin-left: ${props => themeSpacing(props.$marginLeft)};
   margin-right: ${themeSpacing(2)};
   height: ${props => props.$height};
   width: 25px;
@@ -19,17 +23,23 @@ const LegendItemSymbol = styled.div<{ $color: string; $height: string }>`
 interface MapLegendItemProps {
   color: string
   height?: string
+  marginLeft?: number
   text: string
 }
 
 export const MapLegendItem = ({
   color,
   height = '8px',
+  marginLeft = 10,
   text,
 }: MapLegendItemProps) => {
   return (
     <LegendItemWrapper>
-      <LegendItemSymbol $color={color} $height={height} />
+      <LegendItemSymbol
+        $color={color}
+        $height={height}
+        $marginLeft={marginLeft}
+      />
       <Paragraph gutterBottom={0}>{text}</Paragraph>
     </LegendItemWrapper>
   )

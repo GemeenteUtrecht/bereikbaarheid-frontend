@@ -3,25 +3,32 @@ import { useQueries } from '@tanstack/react-query'
 
 import { getRoadSectionsRvv } from '../../../../api/nationaalwegenbestand/rvv/wegvakken'
 
-import { vehicleWidthLayerId } from '../../contexts/mapLayersReducer'
+import { Vehicle } from '../../../ProhibitorySigns/types/vehicle'
+
+import { layerIds } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
+import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'
 import { defaultVehicle } from '../../defaultVehicle'
 
-// determines the order of drawing GeoJSON layers
-export const vehicleWidthCategories = [
-  { color: '#da3417', label: '2,3 m', value: 2.31 },
-  { color: '#f59309', label: '2,1 m', value: 2.11 },
-]
+interface RestrictionsMapLayerVehiclePropertyProps {
+  categories: VehiclePropertyCategory[]
+  layerId: (typeof layerIds)[number]
+  propertyName: keyof Vehicle
+}
 
-export const RestrictionsMapLayerVehicleWidth = () => {
+export const RestrictionsMapLayerVehicleProperty = ({
+  categories,
+  layerId,
+  propertyName,
+}: RestrictionsMapLayerVehiclePropertyProps) => {
   const { activeMapLayers } = useRestrictionsMapContext()
   const queryResults = useQueries({
-    queries: vehicleWidthCategories.map(category => ({
-      enabled: activeMapLayers[vehicleWidthLayerId],
-      queryKey: ['vehicleWidth', category.value],
+    queries: categories.map(category => ({
+      enabled: activeMapLayers[layerId],
+      queryKey: [`vehicle-${propertyName}`, category.value],
       queryFn: ({ signal }: { signal?: AbortSignal }) =>
         getRoadSectionsRvv(
-          { ...defaultVehicle, width: category.value },
+          { ...defaultVehicle, [propertyName]: category.value },
           0,
           'Bedrijfsauto',
           signal,
@@ -39,7 +46,7 @@ export const RestrictionsMapLayerVehicleWidth = () => {
 
   if (isLoading) return null
 
-  if (!activeMapLayers[vehicleWidthLayerId]) return null
+  if (!activeMapLayers[layerId]) return null
 
   return (
     <>
@@ -51,7 +58,7 @@ export const RestrictionsMapLayerVehicleWidth = () => {
             options={{
               interactive: false,
               style: {
-                color: vehicleWidthCategories[index].color,
+                color: categories[index].color,
               },
             }}
           />
