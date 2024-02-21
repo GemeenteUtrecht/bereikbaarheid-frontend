@@ -32,9 +32,18 @@ export const RestrictionsMapLegendRoadNetwork = () => {
       <LegendWrapper>
         <CompactThemeProvider>
           <LegendItemsWrapper>
-            <MapLegendItem color="#60b20d" text={noRestrictionsLabel()} />
+            <MapLegendItem
+              color="#60b20d"
+              marginLeft={1}
+              text={noRestrictionsLabel()}
+            />
 
-            <MapLegendItem color="#91522d" text="voetgangersgebied" />
+            <MapLegendItem
+              color="#91522d"
+              height="4px"
+              marginLeft={1}
+              text="voetgangersgebied"
+            />
           </LegendItemsWrapper>
         </CompactThemeProvider>
       </LegendWrapper>
