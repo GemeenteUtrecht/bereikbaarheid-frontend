@@ -4,11 +4,17 @@ import { MapLegend } from '../../../../shared/components/MapLegend'
 
 import {
   vehicleAxleWeightLayerId,
+  vehicleHeightLayerId,
+  vehicleLengthLayerId,
+  vehicleWeightLayerId,
   vehicleWidthLayerId,
 } from '../../contexts/mapLayersReducer'
 
 import {
   axleWeightCategories,
+  heightCategories,
+  lengthCategories,
+  weightCategories,
   widthCategories,
 } from '../../vehiclePropertyCategories'
 
@@ -44,6 +50,24 @@ export const RestrictionsMapLegend = () => {
               categories={widthCategories}
               layerId={vehicleWidthLayerId}
               label="Breedte"
+            />
+
+            <RestrictionsMapLegendVehicleProperty
+              categories={heightCategories}
+              layerId={vehicleHeightLayerId}
+              label="Hoogte"
+            />
+
+            <RestrictionsMapLegendVehicleProperty
+              categories={lengthCategories}
+              layerId={vehicleLengthLayerId}
+              label="Lengte"
+            />
+
+            <RestrictionsMapLegendVehicleProperty
+              categories={weightCategories}
+              layerId={vehicleWeightLayerId}
+              label="Totaal gewicht"
             />
           </RadioGroup>
         </Column>

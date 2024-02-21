@@ -1,12 +1,24 @@
 export const vehicleAxleWeightLayerId = 'vehicleAxleWeight'
+export const vehicleHeightLayerId = 'vehicleHeight'
+export const vehicleLengthLayerId = 'vehicleLength'
+export const vehicleWeightLayerId = 'vehicleWeight'
 export const vehicleWidthLayerId = 'vehicleWidth'
 
 export const mapLayersInitialState = {
   [vehicleAxleWeightLayerId]: true,
+  [vehicleHeightLayerId]: false,
+  [vehicleLengthLayerId]: false,
+  [vehicleWeightLayerId]: false,
   [vehicleWidthLayerId]: false,
 }
 
-export const layerIds = ['vehicleAxleWeight', 'vehicleWidth'] as const
+export const layerIds = [
+  'vehicleAxleWeight',
+  'vehicleHeight',
+  'vehicleLength',
+  'vehicleWeight',
+  'vehicleWidth',
+] as const
 
 export type mapLayerActionType = {
   type: 'ACTIVATE'

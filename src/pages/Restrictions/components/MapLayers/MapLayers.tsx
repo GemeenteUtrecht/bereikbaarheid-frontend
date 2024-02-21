@@ -11,10 +11,16 @@ import {
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
 import {
   vehicleAxleWeightLayerId,
+  vehicleHeightLayerId,
+  vehicleLengthLayerId,
+  vehicleWeightLayerId,
   vehicleWidthLayerId,
 } from '../../contexts/mapLayersReducer'
 import {
   axleWeightCategories,
+  heightCategories,
+  lengthCategories,
+  weightCategories,
   widthCategories,
 } from '../../vehiclePropertyCategories'
 
@@ -39,6 +45,24 @@ export const RestrictionsMapLayers = () => {
         categories={widthCategories}
         layerId={vehicleWidthLayerId}
         propertyName="width"
+      />
+
+      <RestrictionsMapLayerVehicleProperty
+        categories={heightCategories}
+        layerId={vehicleHeightLayerId}
+        propertyName="height"
+      />
+
+      <RestrictionsMapLayerVehicleProperty
+        categories={lengthCategories}
+        layerId={vehicleLengthLayerId}
+        propertyName="length"
+      />
+
+      <RestrictionsMapLayerVehicleProperty
+        categories={weightCategories}
+        layerId={vehicleWeightLayerId}
+        propertyName="weight"
       />
 
       <TileLayer

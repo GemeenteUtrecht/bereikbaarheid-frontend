@@ -11,6 +11,9 @@ import { useRestrictionsMapContext } from '../../contexts/MapContext'
 
 const vehiclePropertyToLabel: Record<(typeof layerIds)[number], string> = {
   vehicleAxleWeight: 'aslast',
+  vehicleHeight: 'hoogte',
+  vehicleLength: 'lengte',
+  vehicleWeight: 'gewichts',
   vehicleWidth: 'breedte',
 }
 
