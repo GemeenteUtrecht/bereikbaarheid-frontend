@@ -69,7 +69,7 @@ export const RestrictionsMapLegend = () => {
             <RestrictionsMapLegendVehicleProperty
               categories={maximumAllowedWeightCategories}
               layerId={vehicleMaxAllowedWeightLayerId}
-              label="Max. toegestaan gewicht"
+              label="Max toegestaan gewicht"
             />
 
             <RestrictionsMapLegendVehicleProperty
