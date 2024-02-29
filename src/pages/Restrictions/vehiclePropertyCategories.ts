@@ -45,6 +45,11 @@ export const lengthCategories: VehiclePropertyCategory[] = [
   { color: colors[1], label: 'tot 9 m', value: 9.0 },
 ]
 
+export const maximumAllowedWeightCategories: VehiclePropertyCategory[] = [
+  { color: colors[0], label: 'meer dan 3500 kg', value: 60000 },
+  { color: colors[1], label: 'max. 3500kg', value: 3500 },
+]
+
 export const weightCategories: VehiclePropertyCategory[] = [
   { color: colors[0], label: 't/m 30 t', value: 30001 },
   { color: colors[1], label: 't/m 25 t', value: 25001 },

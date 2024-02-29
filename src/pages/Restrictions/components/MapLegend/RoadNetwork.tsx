@@ -13,6 +13,7 @@ const vehiclePropertyToLabel: Record<(typeof layerIds)[number], string> = {
   vehicleAxleWeight: 'aslast',
   vehicleHeight: 'hoogte',
   vehicleLength: 'lengte',
+  vehicleMaxAllowedWeight: 'gewichts',
   vehicleWeight: 'gewichts',
   vehicleWidth: 'breedte',
 }

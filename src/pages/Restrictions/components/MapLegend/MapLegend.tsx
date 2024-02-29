@@ -6,6 +6,7 @@ import {
   vehicleAxleWeightLayerId,
   vehicleHeightLayerId,
   vehicleLengthLayerId,
+  vehicleMaxAllowedWeightLayerId,
   vehicleWeightLayerId,
   vehicleWidthLayerId,
 } from '../../contexts/mapLayersReducer'
@@ -14,6 +15,7 @@ import {
   axleWeightCategories,
   heightCategories,
   lengthCategories,
+  maximumAllowedWeightCategories,
   weightCategories,
   widthCategories,
 } from '../../vehiclePropertyCategories'
@@ -62,6 +64,12 @@ export const RestrictionsMapLegend = () => {
               categories={lengthCategories}
               layerId={vehicleLengthLayerId}
               label="Lengte"
+            />
+
+            <RestrictionsMapLegendVehicleProperty
+              categories={maximumAllowedWeightCategories}
+              layerId={vehicleMaxAllowedWeightLayerId}
+              label="Max. toegestaan gewicht"
             />
 
             <RestrictionsMapLegendVehicleProperty
