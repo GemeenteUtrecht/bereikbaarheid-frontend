@@ -3,17 +3,16 @@ import { useQueries } from '@tanstack/react-query'
 
 import { getRoadSectionsRvv } from '../../../../api/nationaalwegenbestand/rvv/wegvakken'
 
-import { Vehicle } from '../../../ProhibitorySigns/types/vehicle'
-
 import { layerIds } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
+import type { RestrictionsVehicle } from '../../types/vehicle'
 import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'
 import { defaultVehicle } from '../../defaultVehicle'
 
 interface RestrictionsMapLayerVehiclePropertyProps {
   categories: VehiclePropertyCategory[]
   layerId: (typeof layerIds)[number]
-  propertyName: keyof Vehicle
+  propertyName: keyof RestrictionsVehicle
 }
 
 export const RestrictionsMapLayerVehicleProperty = ({
@@ -26,13 +25,16 @@ export const RestrictionsMapLayerVehicleProperty = ({
     queries: categories.map(category => ({
       enabled: activeMapLayers[layerId],
       queryKey: [`vehicle-${propertyName}`, category.value],
-      queryFn: ({ signal }: { signal?: AbortSignal }) =>
-        getRoadSectionsRvv(
-          { ...defaultVehicle, [propertyName]: category.value },
-          0,
-          'Bedrijfsauto',
+      queryFn: ({ signal }: { signal?: AbortSignal }) => {
+        const vehicle = { ...defaultVehicle, [propertyName]: category.value }
+
+        return getRoadSectionsRvv(
+          vehicle,
+          vehicle.maxAllowedWeight,
+          vehicle.type,
           signal,
-        ),
+        )
+      },
       staleTime: 1000 * 60 * 15,
     })),
   })

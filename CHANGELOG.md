@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.5.0...HEAD)
 
+### Added
+- Restrictions: max. allowed weight map layer
+
+### Changed
+- Restrictions: prefer 'max' in map legend
+
 
 ## [v0.5.0 - 2024-02-21](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.4.1...v0.5.0)
 
