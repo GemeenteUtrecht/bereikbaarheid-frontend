@@ -38,6 +38,7 @@ export const useRdwAxlesInfo = () => {
 
   return {
     data: queryResult.data ? parseData(queryResult.data) : undefined,
+    isError: queryResult.isError || queryResult.isLoadingError,
     isLoading: queryResult.isLoading,
   }
 }

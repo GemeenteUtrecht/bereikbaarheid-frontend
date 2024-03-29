@@ -17,14 +17,14 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
     addressInputEnabled: true,
   }
 
-  const setup = (children: ReactNode) => {
+  const setup = (children: ReactNode, licensePlate: string = 'BXLS14') => {
     return {
       user: userEvent.setup(),
       ...withQueryClient(
         withPageContext(<MemoryRouter>{children}</MemoryRouter>, {
           vehicle: {
             height: 2.34,
-            licensePlate: 'BXLS14',
+            licensePlate: licensePlate,
           } as Vehicle,
         }),
       ),
@@ -37,6 +37,19 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
     expect(
       await screen.findByTestId('form-scenario-rdw-info'),
     ).toBeInTheDocument()
+  })
+
+  it('shows an error message when the RDW API is not available', async () => {
+    // suppress Axios console errors
+    jest.spyOn(console, 'error').mockImplementation(jest.fn())
+
+    setup(<ProhibitorySignsFormScenarioRdwInfo {...props} />, 'API500')
+
+    expect(
+      await screen.findByText(
+        'De RDW API is momenteel niet beschikbaar. Probeer het later nog een keer.',
+      ),
+    ).toBeVisible()
   })
 
   it('shows an error message if the payload exceeds the registered maximum', async () => {

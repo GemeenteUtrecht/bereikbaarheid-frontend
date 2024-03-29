@@ -37,6 +37,7 @@ export const useRdwSubcategoryInfo = () => {
 
   return {
     data: queryResult.data?.map(item => parsedItem(item)),
+    isError: queryResult.isError,
     isLoading: queryResult.isLoading,
   }
 }
