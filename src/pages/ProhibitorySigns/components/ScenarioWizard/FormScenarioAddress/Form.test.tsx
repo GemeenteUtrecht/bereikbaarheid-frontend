@@ -113,4 +113,23 @@ describe('ProhibitorySignsFormScenarioAddress', () => {
     expect(await screen.findAllByRole('alert')).toHaveLength(1)
     expect(screen.getByText('Geen adres gevonden')).toBeVisible()
   })
+
+  it('shows an error message when the PDOK API is not available', async () => {
+    const { user } = setup(<ProhibitorySignsFormScenarioAddress />)
+
+    // search for (part of) an address
+    await user.type(
+      screen.getByRole('textbox', {
+        name: /adres van uw bestemming/i,
+      }),
+      'API500',
+    )
+
+    expect(await screen.findAllByRole('alert')).toHaveLength(1)
+    expect(
+      screen.getByText(
+        'De PDOK API is momenteel niet beschikbaar. Hierdoor kan er niet worden gezocht op een adres. Probeer het later nog een keer.',
+      ),
+    ).toBeVisible()
+  })
 })

@@ -71,6 +71,10 @@ const getAddressResults = (params: URLSearchParams) => {
     result = require('./mocks/pdok/suggest/no-results.json')
   }
 
+  if (params.get('q')?.includes('API500')) {
+    result = { status: 500, body: {} }
+  }
+
   return result
 }
 
