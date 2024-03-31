@@ -62,7 +62,7 @@ export const ProhibitorySignsFormScenarioRdwInfo = ({
   const { setActiveStepWizard, setShowScenarioWizard, vehicle, setVehicle } =
     useProhibitorySignsPageContext()
   const previousFormStep = addressInputEnabled ? 1 : 0
-  const { rdwDataIsLoading } = useRdwInfo()
+  const { rdwDataIsError, rdwDataIsLoading } = useRdwInfo()
   const validationSchema = useRdwInfoValidationSchema()
   const {
     register,
@@ -88,6 +88,19 @@ export const ProhibitorySignsFormScenarioRdwInfo = ({
     setShowScenarioWizard(false)
   }
 
+  if (rdwDataIsError) {
+    return (
+      <CompactThemeProvider overrides={theme}>
+        <Paragraph>
+          De RDW API is momenteel niet beschikbaar. Probeer het later nog een
+          keer.
+        </Paragraph>
+      </CompactThemeProvider>
+    )
+  }
+
+  if (rdwDataIsLoading) return <LoadingSpinner />
+
   return (
     <CompactThemeProvider overrides={theme}>
       <Paragraph>
@@ -101,75 +114,60 @@ export const ProhibitorySignsFormScenarioRdwInfo = ({
         </Link>
       </Paragraph>
 
-      {rdwDataIsLoading && <LoadingSpinner />}
+      <FormRdwInfoVehicleSummary />
 
-      {!rdwDataIsLoading && (
-        <>
-          <FormRdwInfoVehicleSummary />
+      <FormRdwInfoIntroText />
 
-          <FormRdwInfoIntroText />
+      <form
+        data-testid="form-scenario-rdw-info"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <RdwInfoFormInnerContainer>
+          <RdwInfoFormRow hasMargin={false}>
+            <Column push={4} span={4}>
+              <Paragraph gutterBottom={0} strong>
+                RDW gegevens
+              </Paragraph>
+            </Column>
+            <Column span={4}>
+              <Paragraph gutterBottom={0} strong>
+                Uw gegevens
+              </Paragraph>
+            </Column>
+          </RdwInfoFormRow>
 
-          <form
-            data-testid="form-scenario-rdw-info"
-            onSubmit={handleSubmit(onSubmit)}
+          <FormRdwInfoVehicleCurbWeight errors={errors} register={register} />
+
+          <FormRdwInfoVehiclePayload
+            errors={errors}
+            register={register}
+            setValue={setValue}
+          />
+
+          <FormRdwInfoVehicleTotalWeight errors={errors} register={register} />
+
+          <FormRdwInfoVehicleAxleWeight errors={errors} register={register} />
+
+          <FormRdwInfoVehicleLength errors={errors} register={register} />
+
+          <FormRdwInfoVehicleWidth errors={errors} register={register} />
+        </RdwInfoFormInnerContainer>
+
+        <ScenarioWizardNav>
+          <Button
+            variant="textButton"
+            iconSize={14}
+            iconLeft={<ChevronLeft />}
+            onClick={() => setActiveStepWizard(previousFormStep)}
           >
-            <RdwInfoFormInnerContainer>
-              <RdwInfoFormRow hasMargin={false}>
-                <Column push={4} span={4}>
-                  <Paragraph gutterBottom={0} strong>
-                    RDW gegevens
-                  </Paragraph>
-                </Column>
-                <Column span={4}>
-                  <Paragraph gutterBottom={0} strong>
-                    Uw gegevens
-                  </Paragraph>
-                </Column>
-              </RdwInfoFormRow>
+            Vorige
+          </Button>
 
-              <FormRdwInfoVehicleCurbWeight
-                errors={errors}
-                register={register}
-              />
-
-              <FormRdwInfoVehiclePayload
-                errors={errors}
-                register={register}
-                setValue={setValue}
-              />
-
-              <FormRdwInfoVehicleTotalWeight
-                errors={errors}
-                register={register}
-              />
-
-              <FormRdwInfoVehicleAxleWeight
-                errors={errors}
-                register={register}
-              />
-
-              <FormRdwInfoVehicleLength errors={errors} register={register} />
-
-              <FormRdwInfoVehicleWidth errors={errors} register={register} />
-            </RdwInfoFormInnerContainer>
-
-            <ScenarioWizardNav>
-              <Button
-                variant="textButton"
-                iconSize={14}
-                iconLeft={<ChevronLeft />}
-                onClick={() => setActiveStepWizard(previousFormStep)}
-              >
-                Vorige
-              </Button>
-
-              <Button variant="secondary" type="submit">
-                Kaart bekijken
-              </Button>
-            </ScenarioWizardNav>
-          </form>
-        </>
-      )}
+          <Button variant="secondary" type="submit">
+            Kaart bekijken
+          </Button>
+        </ScenarioWizardNav>
+      </form>
     </CompactThemeProvider>
   )
 }

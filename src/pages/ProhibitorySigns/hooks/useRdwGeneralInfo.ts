@@ -69,6 +69,7 @@ export const useRdwGeneralInfo = () => {
 
   return {
     data: queryResult.data?.map(item => parsedItem(item)),
+    isError: queryResult.isError,
     isLoading: queryResult.isLoading,
   }
 }

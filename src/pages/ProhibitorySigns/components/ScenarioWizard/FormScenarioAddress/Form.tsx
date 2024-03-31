@@ -85,16 +85,24 @@ export const ProhibitorySignsFormScenarioAddress = () => {
       return
     }
 
-    const search = await suggest(searchString)
+    suggest(searchString)
+      .then(search => {
+        if (search.response.numFound === 0) {
+          setError('searchAddress', {
+            type: 'custom',
+            message: 'Geen adres gevonden',
+          })
+        }
 
-    if (search.response.numFound === 0) {
-      setError('searchAddress', {
-        type: 'custom',
-        message: 'Geen adres gevonden',
+        setAddressOptions(search.response.docs)
       })
-    }
-
-    setAddressOptions(search.response.docs)
+      .catch(() => {
+        setError('searchAddress', {
+          type: 'custom',
+          message:
+            'De PDOK API is momenteel niet beschikbaar. Hierdoor kan er niet worden gezocht op een adres. Probeer het later nog een keer.',
+        })
+      })
   }
 
   const onClickAddress = (e: MouseEvent, item: PdokSuggestItem) => {

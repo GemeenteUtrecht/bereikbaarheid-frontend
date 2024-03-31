@@ -180,4 +180,41 @@ describe('ProhibitorySignsFormScenarioStart', () => {
       ),
     ).toBeVisible()
   })
+
+  it('shows an error message when the webapp is being rate limited', async () => {
+    const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
+
+    const licensePlateInput = screen.getByLabelText('Kenteken')
+    const vehicleHeightInput = screen.getByLabelText('Hoogte van uw voertuig')
+
+    // https://dev.socrata.com/docs/response-codes.html
+    await user.type(licensePlateInput, 'API429')
+    await user.type(vehicleHeightInput, '1.50')
+    await user.click(screen.getByRole('button'))
+
+    expect(await screen.findAllByRole('alert')).toHaveLength(1)
+    expect(
+      screen.getByText(
+        'De RDW API is momenteel niet beschikbaar. Probeer het later nog een keer.',
+      ),
+    ).toBeVisible()
+  })
+
+  it('shows an error message when the RDW API is not available', async () => {
+    const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
+
+    const licensePlateInput = screen.getByLabelText('Kenteken')
+    const vehicleHeightInput = screen.getByLabelText('Hoogte van uw voertuig')
+
+    await user.type(licensePlateInput, 'API500')
+    await user.type(vehicleHeightInput, '1.50')
+    await user.click(screen.getByRole('button'))
+
+    expect(await screen.findAllByRole('alert')).toHaveLength(1)
+    expect(
+      screen.getByText(
+        'De RDW API is momenteel niet beschikbaar. Probeer het later nog een keer.',
+      ),
+    ).toBeVisible()
+  })
 })

@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.6.0...HEAD)
 
+### Changed
+- show a message when the RDW or PDOK API is not available
+
 
 ## [v0.6.0 - 2024-03-06](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.5.0...v0.6.0)
 
