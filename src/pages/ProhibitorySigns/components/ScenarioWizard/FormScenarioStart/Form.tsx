@@ -89,7 +89,7 @@ export const ProhibitorySignsFormScenarioStart = ({
   > = data => {
     const nextFormStep = data.addressInputEnabled ? 1 : 2
 
-    setAddressInputEnabled(data.addressInputEnabled ?? false)
+    setAddressInputEnabled(data.addressInputEnabled ? true : false)
 
     setVehicle({
       licensePlate: data.licensePlate,

@@ -5,7 +5,7 @@ import { useProhibitorySignsMapContext } from '../../contexts/MapContext'
 
 import highlightIconImage from '../../../../shared/icons/highlight.png'
 
-let highlightIcon = L.icon({
+const highlightIcon = L.icon({
   iconUrl: highlightIconImage,
   iconSize: [50, 50],
   iconAnchor: [25, 25],

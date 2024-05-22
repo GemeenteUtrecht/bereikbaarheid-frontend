@@ -5,6 +5,8 @@ import { generatePath } from 'react-router-dom'
 import { getPathTo } from '../../routes'
 import { withApp } from '../../../test/utils/withApp'
 
+import prohibitoryRoadSectionsData from '../../../test/mocks/nationaalwegenbestand/rvv/wegvakken/data.json'
+
 describe('ProhibitorySignsPage', () => {
   it('renders correctly', async () => {
     const pathToPage = generatePath(getPathTo('ACCESSIBILITY_MAP'))
@@ -31,9 +33,9 @@ describe('ProhibitorySignsPage', () => {
 
   it('renders the map when the wizard is completed', async () => {
     const pathToPage = generatePath(getPathTo('ACCESSIBILITY_MAP'))
-    const page = withApp(pathToPage)
-    const prohibitoryRoadSectionsData = require('../../../test/mocks/nationaalwegenbestand/rvv/wegvakken/data.json')
     const user = userEvent.setup()
+
+    withApp(pathToPage)
 
     // wait until page is rendered
     await screen.findAllByText(/bereikbaarheid/i)
@@ -60,17 +62,10 @@ describe('ProhibitorySignsPage', () => {
 
     // wait for the map to load
     await waitFor(() =>
-      // eslint-disable-next-line testing-library/no-node-access
-      document.querySelectorAll('.leaflet-overlay-pane svg path'),
-    )
-
-    // eslint-disable-next-line testing-library/no-node-access
-    const prohibitoryRoadSections = page.container.querySelectorAll(
-      '.leaflet-overlay-pane svg path',
-    )
-
-    expect(prohibitoryRoadSections.length).toBe(
-      prohibitoryRoadSectionsData.features.length,
+      expect(
+        // eslint-disable-next-line testing-library/no-node-access
+        document.querySelectorAll('.leaflet-overlay-pane svg path').length,
+      ).toBe(prohibitoryRoadSectionsData.features.length),
     )
   })
 

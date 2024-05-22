@@ -43,7 +43,9 @@ describe('ScenarioWizard', () => {
   it('adjusts the RDW form when choosing the vehicle + trailer option', async () => {
     const pathToPage = generatePath(getPathTo('ACCESSIBILITY_MAP'))
     const user = userEvent.setup()
-    const vehicle = require('./../../../../../test/mocks/rdw/vehicle/24bjl7.json')
+    const vehicle = await import(
+      './../../../../../test/mocks/rdw/vehicle/24bjl7.json'
+    ).then(module => module.default)
 
     withApp(pathToPage)
 

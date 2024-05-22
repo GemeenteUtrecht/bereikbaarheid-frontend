@@ -24,7 +24,7 @@ export const useRdwInfoValidationSchema = () => {
     // Allowed maximum axle weight for vehicle, determined by RDW.
     // Defaults to the general allowed weight if the RDW has no
     // axle weight on record for this vehicle
-    let rdwAxleWeight = axlesInfo.data?.derived.maxAxleWeight ?? maxAxleWeight
+    const rdwAxleWeight = axlesInfo.data?.derived.maxAxleWeight ?? maxAxleWeight
 
     // if vehicle has a trailer, take the general maximum weight
     if (vehicle.hasTrailer) return maxAxleWeight
@@ -56,7 +56,7 @@ export const useRdwInfoValidationSchema = () => {
         .min(0, 'Lading moet minimaal 0 kg zijn')
         .refine(
           val => {
-            let rdwMaxPayload = generalInfo.data?.[0].derived.payload
+            const rdwMaxPayload = generalInfo.data?.[0].derived.payload
             if (!rdwMaxPayload) return
 
             return !(val > rdwMaxPayload)
@@ -73,7 +73,8 @@ export const useRdwInfoValidationSchema = () => {
           invalid_type_error: 'Voer een nummer in voor lading',
         })
         .min(
-          generalInfo.data?.[0].derived.curbWeight!,
+          // @ts-expect-error curbWeight should be set at this point in the app flow
+          generalInfo.data?.[0].derived.curbWeight,
           `Totaal gewicht moet meer zijn dan ${generalInfo.data?.[0].derived.curbWeight} kg`,
         )
         .max(

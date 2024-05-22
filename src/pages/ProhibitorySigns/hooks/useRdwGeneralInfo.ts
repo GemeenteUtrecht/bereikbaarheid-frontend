@@ -34,7 +34,7 @@ export const useRdwGeneralInfo = () => {
   })
 
   const parsedItem = (item: rdwGeneralData): rdwGeneralInfo => {
-    let curbWeight = Number(item.massa_rijklaar)
+    const curbWeight = Number(item.massa_rijklaar)
     let maxAllowedWeight = Number(item.toegestane_maximum_massa_voertuig)
 
     if (

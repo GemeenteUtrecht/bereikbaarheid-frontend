@@ -1,28 +1,16 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom'
-// @ts-ignore
+import { afterEach, beforeAll } from 'vitest'
+import { cleanup } from '@testing-library/react'
+// @ts-expect-error no types available for mq-polyfill?
 import matchMediaPolyfill from 'mq-polyfill'
+import '@testing-library/jest-dom/vitest'
 
-import { server } from '../test/server'
-
-global.matchMedia =
-  global.matchMedia ||
-  function () {
-    return {
-      matches: false,
-      addListener: function () {},
-      removeListener: function () {},
-    }
-  }
+import { server } from './server'
 
 // Leaflet uses SVG renderer which JSDOM does not support SVG to a full extent.
 // In particular createSVGRect is not supported.
 // thanks to this SO answer: https://stackoverflow.com/a/54384719/1908609
-let createElementNSOrig = global.document.createElementNS
-// @ts-ignore
+const createElementNSOrig = global.document.createElementNS
+// @ts-expect-error fix this later
 global.document.createElementNS = function (
   namespaceURI: string,
   qualifiedName: string,
@@ -31,8 +19,11 @@ global.document.createElementNS = function (
     namespaceURI === 'http://www.w3.org/2000/svg' &&
     qualifiedName === 'svg'
   ) {
-    let element = createElementNSOrig.apply(this, [namespaceURI, qualifiedName])
-    // @ts-ignore
+    const element = createElementNSOrig.apply(this, [
+      namespaceURI,
+      qualifiedName,
+    ])
+    // @ts-expect-error fix this later
     element.createSVGRect = function () {}
     return element
   }
@@ -65,10 +56,14 @@ beforeAll(() => {
 })
 
 afterEach(() => {
+  cleanup()
+
   // Reset any request handlers that we may add during the tests,
   // so they don't affect other tests.
   server.resetHandlers()
 })
 
-// Clean up after the tests are finished.
-afterAll(() => server.close())
+afterAll(() => {
+  // Clean up after the tests are finished.
+  server.close()
+})

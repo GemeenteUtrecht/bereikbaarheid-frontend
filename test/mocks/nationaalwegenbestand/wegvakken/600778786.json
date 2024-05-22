@@ -95,8 +95,8 @@
         "type": "MultiLineString"
       },
       "properties": {
-        "administratieveRichting": null,
-        "baansubsoortCode": null,
+        "administratieveRichting": "",
+        "baansubsoortCode": "",
         "gemeenteId": 344,
         "hectoletter": "#",
         "junctieIdBegin": 276307001,
@@ -108,7 +108,7 @@
         "toegepasteCorrecties": [],
         "wegbeheerdersoort": "G",
         "wegdeelletter": "#",
-        "wegnummer": null,
+        "wegnummer": "",
         "wegvakBegindatum": "2022-03-01",
         "wegvakId": 600778786,
         "woonplaats": "Utrecht"

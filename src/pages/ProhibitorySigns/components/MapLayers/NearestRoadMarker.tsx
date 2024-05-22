@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { usePermitsByLocation } from '../../hooks/usePermitsByLocation'
 import DistanceToDestinationIconImage from '../../../../shared/icons/bootstrap-icon-flag-fill.svg'
 
-let flagIcon = L.icon({
+const flagIcon = L.icon({
   iconUrl: DistanceToDestinationIconImage,
   iconSize: [22, 27],
   iconAnchor: [0, 27],

@@ -4,7 +4,7 @@ import { getFuelInfo, rdwFuelData } from '../../../api/rdw/fuel'
 
 export interface rdwFuelInfo {
   server: rdwFuelData
-  derived: {}
+  derived: object
 }
 
 export const useRdwFuelInfo = () => {

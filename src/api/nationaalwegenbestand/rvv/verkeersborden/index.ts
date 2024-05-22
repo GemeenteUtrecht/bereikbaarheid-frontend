@@ -26,7 +26,7 @@ export interface TrafficSign extends Feature {
   }
 }
 
-interface TrafficSignsFeatureCollection extends FeatureCollection {
+export interface TrafficSignsFeatureCollection extends FeatureCollection {
   features: [] | TrafficSign[]
 }
 
@@ -43,7 +43,7 @@ export function getTrafficSigns(
     paramsSerializer: {
       serialize: query => {
         return Object.entries(query)
-          .map(([key, value], i) =>
+          .map(([key, value]) =>
             Array.isArray(value)
               ? `${key}=${value.join('&' + key + '=')}`
               : `${key}=${value}`,

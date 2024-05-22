@@ -1,4 +1,4 @@
-FROM node:18 as builder
+FROM node:18.18 as builder
 
 ENV BROWSER=none
 
@@ -17,11 +17,9 @@ RUN npm ci
 
 COPY . /app
 
-ARG BUILD_ENV=prod
-COPY .env.${BUILD_ENV} /app/.env
-
 # Build the app
-RUN npm run build
+ARG BUILD_ENV=production
+RUN npm run build -- --mode ${BUILD_ENV}
 
 # Deploy
 FROM nginxinc/nginx-unprivileged:mainline-alpine-slim

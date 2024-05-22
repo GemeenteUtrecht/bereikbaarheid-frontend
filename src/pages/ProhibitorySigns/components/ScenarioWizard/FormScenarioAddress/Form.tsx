@@ -121,7 +121,7 @@ export const ProhibitorySignsFormScenarioAddress = () => {
     setAddressOptions([])
   }
 
-  const onSubmit: SubmitHandler<FormScenarioAddressInputs> = data => {
+  const onSubmit: SubmitHandler<FormScenarioAddressInputs> = () => {
     if (!address.label || !address.lon || !address.lat) {
       setError('searchAddress', {
         type: 'custom',

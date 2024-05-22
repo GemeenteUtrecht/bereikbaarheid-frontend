@@ -2,4 +2,4 @@
 // api.nationaalwegenbestand.nl
 //
 
-export const API_ROOT = process.env.REACT_APP_API_ROOT
+export const API_ROOT = import.meta.env.VITE_API_ROOT

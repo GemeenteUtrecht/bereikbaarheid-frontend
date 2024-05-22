@@ -44,8 +44,8 @@ const FormRdwInfoVehiclePayload = ({
   // update vehicle total weight on change payload
   const calculateTotalWeight = (e: FormEvent<HTMLInputElement>) => {
     const payloadInputValue = e.currentTarget.value
-    let curbWeight = generalInfo.data?.[0].derived.curbWeight
-    let payload = payloadInputValue
+    const curbWeight = generalInfo.data?.[0].derived.curbWeight
+    const payload = payloadInputValue
       ? Number(payloadInputValue.replace(',', '.'))
       : 0
 

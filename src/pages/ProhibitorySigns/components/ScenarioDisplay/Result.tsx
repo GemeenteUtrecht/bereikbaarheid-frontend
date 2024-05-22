@@ -10,7 +10,7 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import LoadingSpinner from '../../../../shared/components/LoadingSpinner'
-import { ReactComponent as DistanceToDestinationIcon } from '../../../../shared/icons/bootstrap-icon-flag-fill.svg'
+import DistanceToDestinationIcon from '../../../../shared/icons/bootstrap-icon-flag-fill.svg?react'
 import { theme } from '../../../../styles/Theme'
 
 import { usePermitsByLocation } from '../../hooks/usePermitsByLocation'
@@ -97,7 +97,7 @@ const ScenarioDisplayResult = () => {
           </Row>
 
           {permitsByLocation.data?.data &&
-            Object.hasOwn(
+            Object.prototype.hasOwnProperty.call(
               permitsByLocation.data?.data.attributes,
               'afstandTotBestemmingInMeters',
             ) && (

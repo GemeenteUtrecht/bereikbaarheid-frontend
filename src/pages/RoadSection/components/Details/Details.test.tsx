@@ -3,10 +3,10 @@ import { render, screen } from '@testing-library/react'
 import { withAppContext } from '../../../../../test/utils/withAppContext'
 import { RoadSectionDetails } from './Details'
 
-describe('RoadSectionDetails', () => {
-  const roadSection = require('../../../../../test/mocks/nationaalwegenbestand/wegvakken/600778786.json')
-  const roadSectionWithCorrections = require('../../../../../test/mocks/nationaalwegenbestand/wegvakken/273311154.json')
+import roadSection from '../../../../../test/mocks/nationaalwegenbestand/wegvakken/600778786.json'
+import roadSectionWithCorrections from '../../../../../test/mocks/nationaalwegenbestand/wegvakken/273311154.json'
 
+describe('RoadSectionDetails', () => {
   it('renders correctly', () => {
     render(
       withAppContext(
