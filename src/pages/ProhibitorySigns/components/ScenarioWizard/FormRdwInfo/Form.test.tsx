@@ -41,7 +41,7 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
 
   it('shows an error message when the RDW API is not available', async () => {
     // suppress Axios console errors
-    jest.spyOn(console, 'error').mockImplementation(jest.fn())
+    vi.spyOn(console, 'error').mockImplementation(vi.fn())
 
     setup(<ProhibitorySignsFormScenarioRdwInfo {...props} />, 'API500')
 
@@ -50,6 +50,8 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
         'De RDW API is momenteel niet beschikbaar. Probeer het later nog een keer.',
       ),
     ).toBeVisible()
+
+    vi.restoreAllMocks()
   })
 
   it('shows an error message if the payload exceeds the registered maximum', async () => {

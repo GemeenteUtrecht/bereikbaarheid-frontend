@@ -32,7 +32,7 @@ describe('RoadSectionPage', () => {
     withApp(pathToPage)
 
     // on render of the page, the error is logged to the console.
-    jest.spyOn(console, 'error').mockImplementation(() => {})
+    vi.spyOn(console, 'error').mockImplementation(() => {})
 
     // wait until the page is rendered
     await screen.findByText(/Wegvak niet gevonden/)
@@ -40,7 +40,7 @@ describe('RoadSectionPage', () => {
     expect(screen.getByText(/Wegvak niet gevonden/)).toBeInTheDocument()
 
     expect(console.error).toHaveBeenCalled()
-    // @ts-ignore
-    console.error.mockRestore()
+
+    vi.restoreAllMocks()
   })
 })

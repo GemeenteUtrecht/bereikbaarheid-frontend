@@ -1,10 +1,13 @@
 import { render, screen } from '@testing-library/react'
 
+import { RoadSectionFeatureCollection } from '../../../../api/nationaalwegenbestand/wegvakken'
 import { withAppContext } from '../../../../../test/utils/withAppContext'
 import { RoadSectionMap, RoadSectionMapProps } from './Map'
 
+import roadSectionJson from '../../../../../test/mocks/nationaalwegenbestand/wegvakken/600778786.json'
+
 describe('RoadSectionMap', () => {
-  const roadSection = require('../../../../../test/mocks/nationaalwegenbestand/wegvakken/600778786.json')
+  const roadSection = roadSectionJson as RoadSectionFeatureCollection
   const props: RoadSectionMapProps = {
     roadSection: roadSection.features[0],
   }

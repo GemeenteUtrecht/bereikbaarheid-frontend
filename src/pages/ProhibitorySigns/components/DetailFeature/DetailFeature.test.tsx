@@ -1,11 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 
+import { TrafficSignsFeatureCollection } from '../../../../api/nationaalwegenbestand/rvv/verkeersborden'
 import { withMapContext } from '../../../../../test/utils/prohibitorySigns/withMapContext'
 import ProhibitorySignsPageProvider from '../../contexts/PageProvider'
 import DetailFeature from './DetailFeature'
 
-const trafficSigns = require('./../../../../../test/mocks/nationaalwegenbestand/rvv/verkeersborden/data.json')
+import trafficSignsJson from './../../../../../test/mocks/nationaalwegenbestand/rvv/verkeersborden/data.json'
+const trafficSigns = trafficSignsJson as TrafficSignsFeatureCollection
 
 describe('ProhibitorySignsDetailFeature', () => {
   it('renders the traffic sign info', async () => {

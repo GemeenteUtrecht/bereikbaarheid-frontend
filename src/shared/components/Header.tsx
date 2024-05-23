@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { Header as ASCHeader } from '@amsterdam/asc-ui'
 
 import { HEADER_HEIGHT, Z_INDEX_HEADER } from '../constants'
-import { ReactComponent as SvgLogo } from '../../styles/logo.svg'
+import SvgLogo from '../../styles/logo.svg?react'
 
 const StyledLogo = styled(SvgLogo)`
   height: 44px;

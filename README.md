@@ -17,7 +17,7 @@ Deze folder is als volgt ingedeeld:
 
 ### To have a look around
 - Make sure the API is running locally, for more info see the [bereikbaarheid-backend repo](https://github.com/GemeenteUtrecht/bereikbaarheid-backend).
-- Run the docker container: `docker-compose up --build`.
+- Run the docker container: `docker compose up --build`.
 
 ### Om aanpassingen aan de frontend te maken
 1. Installeer [Node.js](https://nodejs.org/en/)
@@ -33,16 +33,16 @@ Deze folder is als volgt ingedeeld:
 
 Een hot-reloaded versie van de frontend is beschikbaar via [http://localhost:3000](http://localhost:3000). De pagina wordt ververst als je bronbestanden (in de `src` folder) wijzigt. Zowel in je IDE als in de console zijn linting en formatting errors te zien.
 
-De frontend is gescaffold met [Create React App](https://github.com/facebook/create-react-app).
-
 ### Hoe is het CORS issue opgelost in de verschillende scenario's?
-- Tijdens ontwikkeling van de frontend zorgt CRA voor de proxy, zie `package.json`. 
+- Tijdens ontwikkeling van de frontend zorgt Vite voor de proxy, zie `vite.config.ts`. 
 - Om CORS issues in de docker-compose setup te vermijden, wordt een aparte NGINX setup (`nginx.dockercompose.conf`) gebruikt. Via een build argument wordt bepaald welke nginx configuratie wordt geladen.
 
 ## Available Scripts
 In this directory, you can run:
 
-- `npm start`: runs the app in the development mode. For more info, see 'Getting started'.
-- `npm test`: launches the test runner in the interactive watch mode.
+- `npm start`: runs the app in the development mode.
+- `npm run lint`: lints the application code.
+- `npm run test`: launches the test runner.
+- `npm run test:watch`: launches the test runner in the interactive watch mode.
 - `npm run build`: builds the app for production to the `build` folder.
-- `npm run eject`: this app is currently **not** ejected.
+- `npm run preview`: preview the built app.

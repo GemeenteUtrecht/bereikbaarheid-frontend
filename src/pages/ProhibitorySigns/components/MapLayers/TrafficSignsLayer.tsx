@@ -23,7 +23,7 @@ const ProhibitorySignsTrafficSignsLayer = () => {
   const rdwGeneralInfo = useRdwGeneralInfo()
   const rdwGeneralData = rdwGeneralInfo.data
 
-  let trafficSignCategories: TrafficSignCategory[] = [
+  const trafficSignCategories: TrafficSignCategory[] = [
     'verbod met uitzondering',
     'verplichting',
   ]
@@ -51,7 +51,7 @@ const ProhibitorySignsTrafficSignsLayer = () => {
   }, [trafficSigns.data, updateActiveMapLayers])
 
   const findTrafficSign = (id: number) => {
-    let sign = trafficSigns.data?.features.find(
+    const sign = trafficSigns.data?.features.find(
       item => item.properties.id === id,
     )
 

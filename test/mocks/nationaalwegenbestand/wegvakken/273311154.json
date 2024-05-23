@@ -39,7 +39,7 @@
         "type": "MultiLineString"
       },
       "properties": {
-        "administratieveRichting": null,
+        "administratieveRichting": "",
         "baansubsoortCode": "FP",
         "gemeenteId": 344,
         "hectoletter": "#",
@@ -63,7 +63,7 @@
         ],
         "wegbeheerdersoort": "G",
         "wegdeelletter": "#",
-        "wegnummer": null,
+        "wegnummer": "",
         "wegvakBegindatum": "2020-12-01",
         "wegvakId": 273311154,
         "woonplaats": "Utrecht"

@@ -9,7 +9,7 @@ import { theme } from './styles/Theme'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: process.env.NODE_ENV === 'production' ? 3 : false,
+      retry: import.meta.env.NODE_ENV === 'production' ? 3 : false,
       refetchOnWindowFocus: false,
     },
   },

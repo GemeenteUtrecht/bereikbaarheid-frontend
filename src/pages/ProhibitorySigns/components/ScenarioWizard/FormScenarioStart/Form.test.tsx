@@ -15,7 +15,7 @@ import {
 describe('ProhibitorySignsFormScenarioStart', () => {
   const props: ProhibitorySignsFormScenarioStartProps = {
     addressInputEnabled: true,
-    setAddressInputEnabled: jest.fn(),
+    setAddressInputEnabled: vi.fn(),
   }
 
   const setup = (children: ReactNode) => {

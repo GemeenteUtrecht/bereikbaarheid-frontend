@@ -1,6 +1,6 @@
 import { icons } from '@amsterdam/arm-core'
 import L from 'leaflet'
-import endsWith from 'lodash/endsWith'
+import { endsWith } from 'lodash-es'
 
 import { TrafficSign } from '../../../../api/nationaalwegenbestand/rvv/verkeersborden'
 

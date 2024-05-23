@@ -26,6 +26,7 @@ export const useRdwAxlesInfo = () => {
     return {
       server: data,
       derived: {
+        // eslint-disable-next-line prefer-spread
         maxAxleWeight: Math.max.apply(
           Math,
           data.map(function (item: rdwAxlesData) {

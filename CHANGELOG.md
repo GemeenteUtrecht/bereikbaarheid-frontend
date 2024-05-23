@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.1...HEAD)
 
+### Fixed
+- migrate from Create React App to Vite
+- migrate from Jest to Vitest
+
 
 ## [v0.7.1 - 2024-05-06](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.0...v0.7.1)
 

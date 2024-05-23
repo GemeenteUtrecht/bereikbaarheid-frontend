@@ -8,7 +8,7 @@ import ProhibitorySignsHeader, { ProhibitorySignsHeaderProps } from './Header'
 
 describe('ProhibitorySignsHeader', () => {
   const props: ProhibitorySignsHeaderProps = {
-    setOpenFeedbackModal: jest.fn(),
+    setOpenFeedbackModal: vi.fn(),
   }
 
   it('renders correctly', async () => {
