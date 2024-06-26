@@ -1,4 +1,4 @@
-import { DefaultBodyType, rest } from 'msw'
+import { DefaultBodyType, http, HttpResponse } from 'msw'
 
 import { ENDPOINT as ENDPOINT_TRAFFIC_SIGNS } from '../src/api/nationaalwegenbestand/rvv/verkeersborden'
 import { ENDPOINT as ENDPOINT_PROHIBITORY_ROADS } from '../src/api/nationaalwegenbestand/rvv/wegvakken'
@@ -29,27 +29,29 @@ import vehicleMobileCrane from './mocks/rdw/vehicle/85bpf2.json'
 import vehicleValidTruck from './mocks/rdw/vehicle/bxls14.json'
 
 export const handlers = [
-  rest.get(ENDPOINT_ADDRESS_SEARCH, (req, res, ctx) => {
-    const searchResultsMock = getAddressResults(req.url.searchParams)
-    return res(ctx.status(200), ctx.json(searchResultsMock))
+  http.get(ENDPOINT_ADDRESS_SEARCH, ({ request }) => {
+    const url = new URL(request.url)
+    const searchResultsMock = getAddressResults(url.searchParams)
+    return HttpResponse.json(searchResultsMock, { status: 200 })
   }),
 
-  rest.get(ENDPOINT_PROHIBITORY_ROADS, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(rvvRoadSections))
+  http.get(ENDPOINT_PROHIBITORY_ROADS, () => {
+    return HttpResponse.json(rvvRoadSections, { status: 200 })
   }),
 
-  rest.get(`/${ENDPOINT_ROAD_SECTION}:roadSectionId`, (req, res, ctx) => {
+  http.get(`/${ENDPOINT_ROAD_SECTION}:roadSectionId`, req => {
     const { roadSectionId } = req.params
     const roadSectionMock = getRoadSection(roadSectionId)
-    return res(ctx.status(200), ctx.json(roadSectionMock))
+    return HttpResponse.json(roadSectionMock, { status: 200 })
   }),
 
-  rest.get(ENDPOINT_TRAFFIC_SIGNS, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(rvvTrafficSigns))
+  http.get(ENDPOINT_TRAFFIC_SIGNS, () => {
+    return HttpResponse.json(rvvTrafficSigns, { status: 200 })
   }),
 
-  rest.get(ENDPOINT_RDW_AXLES, async (req, res, ctx) => {
-    const licensePlate = req.url.searchParams.get('kenteken')
+  http.get(ENDPOINT_RDW_AXLES, async ({ request }) => {
+    const url = new URL(request.url)
+    const licensePlate = url.searchParams.get('kenteken')
     let axlesMock: [] | Promise<unknown> = []
 
     if (licensePlate) {
@@ -58,11 +60,12 @@ export const handlers = [
       ).then(module => module.default)
     }
 
-    return res(ctx.status(200), ctx.json(axlesMock))
+    return HttpResponse.json(axlesMock, { status: 200 })
   }),
 
-  rest.get(ENDPOINT_RDW_FUEL, async (req, res, ctx) => {
-    const licensePlate = req.url.searchParams.get('kenteken')
+  http.get(ENDPOINT_RDW_FUEL, async ({ request }) => {
+    const url = new URL(request.url)
+    const licensePlate = url.searchParams.get('kenteken')
     let fuelMock: [] | Promise<unknown> = []
 
     if (licensePlate) {
@@ -71,11 +74,12 @@ export const handlers = [
       ).then(module => module.default)
     }
 
-    return res(ctx.status(200), ctx.json(fuelMock))
+    return HttpResponse.json(fuelMock, { status: 200 })
   }),
 
-  rest.get(ENDPOINT_RDW_SUBCATEGORY, async (req, res, ctx) => {
-    const licensePlate = req.url.searchParams.get('kenteken')
+  http.get(ENDPOINT_RDW_SUBCATEGORY, async ({ request }) => {
+    const url = new URL(request.url)
+    const licensePlate = url.searchParams.get('kenteken')
     let subcategoryMock: [] | Promise<unknown> = []
 
     if (licensePlate) {
@@ -84,12 +88,13 @@ export const handlers = [
       ).then(module => module.default)
     }
 
-    return res(ctx.status(200), ctx.json(subcategoryMock))
+    return HttpResponse.json(subcategoryMock, { status: 200 })
   }),
 
-  rest.get(ENDPOINT_RDW_VEHICLE, async (req, res, ctx) => {
-    const vehicleMock = await getVehicle(req.url.searchParams)
-    return res(ctx.status(vehicleMock.status), ctx.json(vehicleMock.body))
+  http.get(ENDPOINT_RDW_VEHICLE, async ({ request }) => {
+    const url = new URL(request.url)
+    const vehicleMock = await getVehicle(url.searchParams)
+    return HttpResponse.json(vehicleMock.body, { status: vehicleMock.status })
   }),
 ]
 
