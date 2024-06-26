@@ -1,8 +1,11 @@
 import { screen } from '@testing-library/react'
+import { http, HttpResponse } from 'msw'
 import { generatePath } from 'react-router-dom'
 
-import { getPathTo } from '../../routes'
+import { ENDPOINT as ENDPOINT_ROAD_SECTION } from '../../api/nationaalwegenbestand/wegvakken'
+import { server } from '../../../test/server'
 import { withApp } from '../../../test/utils/withApp'
+import { getPathTo } from '../../routes'
 
 describe('RoadSectionPage', () => {
   it('renders correctly', async () => {
@@ -28,6 +31,15 @@ describe('RoadSectionPage', () => {
     const pathToPage = generatePath(getPathTo('ROAD_SECTION_DETAIL_PAGE'), {
       wegvakId: 404404,
     })
+
+    server.use(
+      http.get(`/${ENDPOINT_ROAD_SECTION}:roadSectionId`, () => {
+        return HttpResponse.json(
+          { features: [], type: 'FeatureCollection' },
+          { status: 200 },
+        )
+      }),
+    )
 
     withApp(pathToPage)
 
