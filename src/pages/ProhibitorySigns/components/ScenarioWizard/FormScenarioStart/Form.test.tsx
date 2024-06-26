@@ -1,8 +1,13 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { http, HttpResponse } from 'msw'
 import { ReactNode } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 
+import { ENDPOINT as ENDPOINT_RDW_VEHICLE } from '../../../../../api/rdw/vehicle'
+import { server } from '../../../../../../test/server'
+import trailer from '../../../../../../test/mocks/rdw/vehicle/ot77fj.json'
+import vehicleNoMaximumAllowedWeight from '../../../../../../test/mocks/rdw/vehicle/65jrdp.json'
 import { withAppContext } from '../../../../../../test/utils/withAppContext'
 import { withQueryClient } from '../../../../../../test/utils/withQueryClient'
 
@@ -70,6 +75,12 @@ describe('ProhibitorySignsFormScenarioStart', () => {
   })
 
   it('shows an error message if license plate belongs to a trailer', async () => {
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json(trailer, { status: 200 })
+      }),
+    )
+
     const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
 
     const licensePlateInput = await screen.findByLabelText('Kenteken')
@@ -104,6 +115,13 @@ describe('ProhibitorySignsFormScenarioStart', () => {
   })
 
   it('shows an error message if license plate is not found', async () => {
+    // RDW returns an empty array when a license plate is not found
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json([], { status: 200 })
+      }),
+    )
+
     const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
 
     const licensePlateInput = await screen.findByLabelText('Kenteken')
@@ -124,6 +142,12 @@ describe('ProhibitorySignsFormScenarioStart', () => {
   })
 
   it('shows an error message if vehicle has no maximum allowed weight', async () => {
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json(vehicleNoMaximumAllowedWeight, { status: 200 })
+      }),
+    )
+
     const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
 
     const licensePlateInput = await screen.findByLabelText('Kenteken')
@@ -184,6 +208,12 @@ describe('ProhibitorySignsFormScenarioStart', () => {
   it('shows an error message when the webapp is being rate limited', async () => {
     const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
 
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json({}, { status: 429 })
+      }),
+    )
+
     const licensePlateInput = screen.getByLabelText('Kenteken')
     const vehicleHeightInput = screen.getByLabelText('Hoogte van uw voertuig')
 
@@ -202,6 +232,12 @@ describe('ProhibitorySignsFormScenarioStart', () => {
 
   it('shows an error message when the RDW API is not available', async () => {
     const { user } = setup(<ProhibitorySignsFormScenarioStart {...props} />)
+
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json({}, { status: 500 })
+      }),
+    )
 
     const licensePlateInput = screen.getByLabelText('Kenteken')
     const vehicleHeightInput = screen.getByLabelText('Hoogte van uw voertuig')

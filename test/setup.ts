@@ -34,13 +34,7 @@ global.document.createElementNS = function (
 beforeAll(() => {
   // Establish API mocking before all tests.
   server.listen({
-    onUnhandledRequest(req) {
-      console.error(
-        'Found an unhandled %s request to %s',
-        req.method,
-        req.url.href,
-      )
-    },
+    onUnhandledRequest: 'error',
   })
 
   // default viewport is 1024x768

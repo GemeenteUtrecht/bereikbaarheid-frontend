@@ -1,8 +1,12 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { http, HttpResponse } from 'msw'
 import { ReactNode } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 
+import { ENDPOINT as ENDPOINT_ADDRESS_SEARCH } from '../../../../../api/pdok/suggest'
+import { server } from '../../../../../../test/server'
+import addressNoResults from '../../../../../../test/mocks/pdok/suggest/no-results.json'
 import { withAppContext } from '../../../../../../test/utils/withAppContext'
 import { withQueryClient } from '../../../../../../test/utils/withQueryClient'
 
@@ -102,6 +106,12 @@ describe('ProhibitorySignsFormScenarioAddress', () => {
   it('shows an error message if an address is not found', async () => {
     const { user } = setup(<ProhibitorySignsFormScenarioAddress />)
 
+    server.use(
+      http.get(ENDPOINT_ADDRESS_SEARCH, () => {
+        return HttpResponse.json(addressNoResults, { status: 200 })
+      }),
+    )
+
     // search for (part of) an address
     await user.type(
       screen.getByRole('textbox', {
@@ -116,6 +126,12 @@ describe('ProhibitorySignsFormScenarioAddress', () => {
 
   it('shows an error message when the PDOK API is not available', async () => {
     const { user } = setup(<ProhibitorySignsFormScenarioAddress />)
+
+    server.use(
+      http.get(ENDPOINT_ADDRESS_SEARCH, () => {
+        return new HttpResponse(null, { status: 500 })
+      }),
+    )
 
     // search for (part of) an address
     await user.type(

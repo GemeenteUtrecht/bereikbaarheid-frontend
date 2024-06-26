@@ -1,9 +1,12 @@
 import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { http, HttpResponse } from 'msw'
 import { generatePath } from 'react-router-dom'
 
+import { ENDPOINT as ENDPOINT_RDW_VEHICLE } from '../../../../api/rdw/vehicle'
 import { getPathTo } from '../../../../routes'
 import { withApp } from '../../../../../test/utils/withApp'
+import { server } from '../../../../../test/server.ts'
 
 describe('ScenarioWizard', () => {
   it('an address it not required to complete the wizard', async () => {
@@ -46,6 +49,12 @@ describe('ScenarioWizard', () => {
     const vehicle = await import(
       './../../../../../test/mocks/rdw/vehicle/24bjl7.json'
     ).then(module => module.default)
+
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, async () => {
+        return HttpResponse.json(vehicle, { status: 200 })
+      }),
+    )
 
     withApp(pathToPage)
 

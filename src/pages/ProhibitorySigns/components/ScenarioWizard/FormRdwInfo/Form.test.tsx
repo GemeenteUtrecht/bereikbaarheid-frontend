@@ -1,8 +1,12 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { http, HttpResponse } from 'msw'
 import { ReactNode } from 'react'
 import { MemoryRouter } from 'react-router-dom'
 
+import { ENDPOINT as ENDPOINT_RDW_VEHICLE } from '../../../../../api/rdw/vehicle'
+import { server } from '../../../../../../test/server.ts'
+import mobileCrane from '../../../../../../test/mocks/rdw/vehicle/85bpf2.json'
 import { withPageContext } from '../../../../../../test/utils/prohibitorySigns/withPageContext'
 import { withQueryClient } from '../../../../../../test/utils/withQueryClient'
 
@@ -42,6 +46,12 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
   it('shows an error message when the RDW API is not available', async () => {
     // suppress Axios console errors
     vi.spyOn(console, 'error').mockImplementation(vi.fn())
+
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json({}, { status: 500 })
+      }),
+    )
 
     setup(<ProhibitorySignsFormScenarioRdwInfo {...props} />, 'API500')
 
@@ -103,6 +113,12 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
   })
 
   it('increases the allowed axle and total weight in case of a mobile crane', async () => {
+    server.use(
+      http.get(ENDPOINT_RDW_VEHICLE, () => {
+        return HttpResponse.json(mobileCrane, { status: 200 })
+      }),
+    )
+
     const user = userEvent.setup()
 
     withQueryClient(
