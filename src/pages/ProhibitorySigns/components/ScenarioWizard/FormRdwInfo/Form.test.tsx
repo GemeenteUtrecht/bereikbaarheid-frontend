@@ -14,7 +14,7 @@ import {
   ProhibitorySignsFormScenarioRdwInfo,
   ProhibitorySignsFormScenarioRdwInfoProps,
 } from './Form'
-import { Vehicle } from '../../../types/vehicle'
+import { ProhibitorySignsVehicle } from '../../../types/vehicle'
 
 describe('ProhibitorySignsFormScenarioRdwInfo', () => {
   const props: ProhibitorySignsFormScenarioRdwInfoProps = {
@@ -29,7 +29,7 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
           vehicle: {
             height: 2.34,
             licensePlate: licensePlate,
-          } as Vehicle,
+          } as ProhibitorySignsVehicle,
         }),
       ),
     }
@@ -130,7 +130,7 @@ describe('ProhibitorySignsFormScenarioRdwInfo', () => {
           vehicle: {
             height: 3.25,
             licensePlate: '85BPF2',
-          } as Vehicle,
+          } as ProhibitorySignsVehicle,
         },
       ),
     )

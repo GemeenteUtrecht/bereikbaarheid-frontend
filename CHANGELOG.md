@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ### Fixed
 - upgrade to MSW 2.x
 - refactor MSW server handlers
+- refactor Vehicle types
 
 
 ## [v0.7.2 - 2024-06-06](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.1...v0.7.2)

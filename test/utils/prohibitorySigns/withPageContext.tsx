@@ -5,7 +5,7 @@ import {
   ProhibitorySignsPageContextProps,
 } from '../../../src/pages/ProhibitorySigns/contexts/PageContext'
 import { Address } from '../../../src/types/address'
-import { Vehicle } from '../../../src/pages/ProhibitorySigns/types/vehicle'
+import { ProhibitorySignsVehicle } from '../../../src/pages/ProhibitorySigns/types/vehicle'
 
 export const initialState: ProhibitorySignsPageContextProps = {
   activeStepWizard: 0,
@@ -15,7 +15,7 @@ export const initialState: ProhibitorySignsPageContextProps = {
   expertMode: false,
   showScenarioWizard: false,
   setShowScenarioWizard: () => {},
-  vehicle: {} as Vehicle,
+  vehicle: {} as ProhibitorySignsVehicle,
   setVehicle: () => {},
 }
 
