@@ -19,7 +19,7 @@ import { FormLabel } from '../../../../../shared/components/FormLabel'
 import InputWithSuffix from '../../../../../shared/components/InputWithSuffix'
 import { useProhibitorySignsPageContext } from '../../../contexts/PageContext'
 
-import { Vehicle } from '../../../types/vehicle'
+import { ProhibitorySignsVehicle } from '../../../types/vehicle'
 import {
   FormInputLicensePlate,
   FormInputLicensePlateWidth,
@@ -58,9 +58,9 @@ export interface ProhibitorySignsFormScenarioStartProps {
 
 export type FormScenarioStartInputs = {
   addressInputEnabled: ProhibitorySignsFormScenarioStartProps['addressInputEnabled']
-  licensePlate: Vehicle['licensePlate']
-  vehicleHasTrailer: Vehicle['hasTrailer']
-  vehicleHeight: Vehicle['height']
+  licensePlate: ProhibitorySignsVehicle['licensePlate']
+  vehicleHasTrailer: ProhibitorySignsVehicle['hasTrailer']
+  vehicleHeight: ProhibitorySignsVehicle['height']
 }
 
 export const ProhibitorySignsFormScenarioStart = ({
@@ -95,7 +95,7 @@ export const ProhibitorySignsFormScenarioStart = ({
       licensePlate: data.licensePlate,
       hasTrailer: data.vehicleHasTrailer ?? false,
       height: data.vehicleHeight,
-    } as Vehicle)
+    } as ProhibitorySignsVehicle)
 
     setActiveStepWizard(nextFormStep)
   }

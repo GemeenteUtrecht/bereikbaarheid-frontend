@@ -1,10 +1,6 @@
-export interface Vehicle {
-  axleWeight: number
-  hasTrailer: boolean
-  height: number
-  length: number
+import { Vehicle } from '../../../types/vehicle'
+
+export interface ProhibitorySignsVehicle extends Vehicle {
   licensePlate: string
   payload: number
-  weight: number
-  width: number
 }

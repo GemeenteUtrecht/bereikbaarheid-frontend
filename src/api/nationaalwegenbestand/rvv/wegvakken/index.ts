@@ -6,7 +6,7 @@ import {
   MultiLineString,
 } from 'geojson'
 
-import { Vehicle } from '../../../../pages/ProhibitorySigns/types/vehicle'
+import { Vehicle } from '../../../../types/vehicle'
 
 import { API_ROOT } from '../../index'
 

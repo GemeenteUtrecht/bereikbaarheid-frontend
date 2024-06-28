@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import { Address } from '../../../types/address'
-import { Vehicle } from '../types/vehicle'
+import { ProhibitorySignsVehicle } from '../types/vehicle'
 
 import { ProhibitorySignsPageContext } from './PageContext'
 
@@ -16,7 +16,7 @@ const ProhibitorySignsPageProvider = ({ children }: Props) => {
   const [queryParams] = useSearchParams()
   const expertMode = queryParams.get('expertMode') ? true : false
   const [showScenarioWizard, setShowScenarioWizard] = useState(true)
-  const [vehicle, setVehicle] = useState({} as Vehicle)
+  const [vehicle, setVehicle] = useState({} as ProhibitorySignsVehicle)
 
   return (
     <ProhibitorySignsPageContext.Provider

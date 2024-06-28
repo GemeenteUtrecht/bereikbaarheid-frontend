@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Feature, FeatureCollection, Point } from 'geojson'
 
-import { Vehicle } from '../../../../pages/ProhibitorySigns/types/vehicle'
+import { Vehicle } from '../../../../types/vehicle'
 
 import { API_ROOT } from '../../index'
 

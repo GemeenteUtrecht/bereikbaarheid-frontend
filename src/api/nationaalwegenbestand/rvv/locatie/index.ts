@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Point } from 'geojson'
 
 import { Address } from '../../../../types/address'
-import { Vehicle } from '../../../../pages/ProhibitorySigns/types/vehicle'
+import { Vehicle } from '../../../../types/vehicle'
 
 import { API_ROOT } from '../../index'
 

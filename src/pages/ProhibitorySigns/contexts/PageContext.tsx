@@ -1,7 +1,7 @@
 import { createContext, Dispatch, SetStateAction, useContext } from 'react'
 
 import { Address } from '../../../types/address'
-import { Vehicle } from '../types/vehicle'
+import { ProhibitorySignsVehicle } from '../types/vehicle'
 
 export type ProhibitorySignsPageContextProps = {
   activeStepWizard: number
@@ -11,8 +11,8 @@ export type ProhibitorySignsPageContextProps = {
   expertMode: boolean
   showScenarioWizard: boolean
   setShowScenarioWizard: Dispatch<SetStateAction<boolean>>
-  vehicle: Vehicle
-  setVehicle: Dispatch<SetStateAction<Vehicle>>
+  vehicle: ProhibitorySignsVehicle
+  setVehicle: Dispatch<SetStateAction<ProhibitorySignsVehicle>>
 }
 
 export const ProhibitorySignsPageContext = createContext<
