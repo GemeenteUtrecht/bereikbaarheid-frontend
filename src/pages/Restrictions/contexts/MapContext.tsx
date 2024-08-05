@@ -1,6 +1,9 @@
 import { createContext, Dispatch, SetStateAction, useContext } from 'react'
 
-import { mapLayerActionType, mapLayersInitialState } from './mapLayersReducer'
+import {
+  mapLayerActionType,
+  type mapLayersInitialState,
+} from './mapLayersReducer'
 
 export type RestrictionsMapContextProps = {
   activeBaseLayer: string

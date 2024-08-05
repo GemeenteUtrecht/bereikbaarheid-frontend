@@ -4,7 +4,7 @@ import { MouseEvent } from 'react'
 import { MapLegendItem } from '../../../../shared/components/MapLegendItem'
 import { LegendItemsWrapper } from '../../../../shared/components/MapLegendStyles'
 
-import { layerIds } from '../../contexts/mapLayersReducer'
+import { type layerIds } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
 import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'
 

@@ -1,4 +1,4 @@
-import { layerIds } from '../contexts/mapLayersReducer'
+import { type layerIds } from '../contexts/mapLayersReducer'
 
 export const useActiveRoadNetwork = () => {
   const activeRoadNetwork: (typeof layerIds)[number] =

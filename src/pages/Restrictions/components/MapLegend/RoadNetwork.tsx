@@ -6,7 +6,7 @@ import {
   LegendItemsWrapper,
 } from '../../../../shared/components/MapLegendStyles'
 
-import { layerIds } from '../../contexts/mapLayersReducer'
+import { type layerIds } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
 
 const vehiclePropertyToLabel: Record<(typeof layerIds)[number], string> = {

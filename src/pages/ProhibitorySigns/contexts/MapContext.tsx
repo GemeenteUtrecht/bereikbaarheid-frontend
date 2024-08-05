@@ -2,7 +2,10 @@ import { createContext, Dispatch, SetStateAction, useContext } from 'react'
 
 import { TrafficSign } from '../../../api/nationaalwegenbestand/rvv/verkeersborden'
 
-import { mapLayerActionType, mapLayersInitialState } from './mapLayersReducer'
+import {
+  mapLayerActionType,
+  type mapLayersInitialState,
+} from './mapLayersReducer'
 
 export type ProhibitorySignsMapContextProps = {
   activeBaseLayer: string

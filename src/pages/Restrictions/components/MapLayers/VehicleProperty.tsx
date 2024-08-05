@@ -3,7 +3,7 @@ import { useQueries } from '@tanstack/react-query'
 
 import { getRoadSectionsRvv } from '../../../../api/nationaalwegenbestand/rvv/wegvakken'
 
-import { layerIds } from '../../contexts/mapLayersReducer'
+import { type layerIds } from '../../contexts/mapLayersReducer'
 import { useRestrictionsMapContext } from '../../contexts/MapContext'
 import type { RestrictionsVehicle } from '../../types/vehicle'
 import type { VehiclePropertyCategory } from '../../types/vehiclePropertyCategory'

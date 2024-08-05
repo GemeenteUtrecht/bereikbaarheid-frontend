@@ -20,6 +20,7 @@ const router = createBrowserRouter(ROUTES, {
     v7_fetcherPersist: true,
     v7_normalizeFormMethod: true,
     v7_relativeSplatPath: true,
+    v7_skipActionErrorRevalidation: true,
   },
 })
 
