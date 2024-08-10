@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Fixed
 - upgrade to Vitest 2.x
+- migrate to ESlint flat config format
 
 
 ## [v0.7.4 - 2024-08-05](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.3...v0.7.4)
