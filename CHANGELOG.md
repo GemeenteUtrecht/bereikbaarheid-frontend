@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.5...HEAD)
+## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.6...HEAD)
+
+
+## [v0.7.6 - 2024-10-05](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.5...v0.7.6)
+
+### Fixed
+- upgrade to ESLint 9.x
+- updated dependencies
 
 
 ## [v0.7.5 - 2024-09-10](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.4...v0.7.5)

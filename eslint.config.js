@@ -27,7 +27,7 @@ export default [
       reportUnusedDisableDirectives: 'warn',
     },
     plugins: {
-      'react-hooks': reactHooksEslint,
+      'react-hooks': fixupPluginRules(reactHooksEslint),
       'react-refresh': reactRefresh,
       'typescript-eslint': typeScriptEslint,
     },
@@ -49,6 +49,6 @@ export default [
         rules: testingLibraryPlugin.rules,
       }),
     },
-    rules: testingLibraryPlugin.configs.react.rules,
+    rules: testingLibraryPlugin.configs['flat/react'].rules,
   },
 ]
