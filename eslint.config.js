@@ -1,5 +1,4 @@
 import eslint from '@eslint/js'
-import { fixupPluginRules } from '@eslint/compat'
 import globals from 'globals'
 import prettierEslintConfigRecommended from 'eslint-plugin-prettier/recommended'
 import reactHooksEslint from 'eslint-plugin-react-hooks'
@@ -27,7 +26,7 @@ export default [
       reportUnusedDisableDirectives: 'warn',
     },
     plugins: {
-      'react-hooks': fixupPluginRules(reactHooksEslint),
+      'react-hooks': reactHooksEslint,
       'react-refresh': reactRefresh,
       'typescript-eslint': typeScriptEslint,
     },
@@ -45,9 +44,7 @@ export default [
   {
     files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
     plugins: {
-      'testing-library': fixupPluginRules({
-        rules: testingLibraryPlugin.rules,
-      }),
+      'testing-library': testingLibraryPlugin,
     },
     rules: testingLibraryPlugin.configs['flat/react'].rules,
   },
