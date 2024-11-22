@@ -31,6 +31,7 @@ export const usePermitsByLocation = () => {
         signal,
       ),
     staleTime: 1000 * 60 * 10,
+    useErrorBoundary: true,
   })
 
   return {

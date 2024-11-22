@@ -32,6 +32,7 @@ const ProhibitorySignsProhibitoryRoadsLayer = () => {
         rdwGeneralData![0].derived.vehicleType,
         signal,
       ),
+    useErrorBoundary: true,
   })
 
   useEffect(() => {
