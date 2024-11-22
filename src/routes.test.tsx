@@ -13,4 +13,12 @@ describe('routes', () => {
       await screen.findByTestId('prohibitory-signs-page'),
     ).toBeInTheDocument()
   })
+
+  it('shows the not found page when an nonexistent url is requested', async () => {
+    const pathToPage = generatePath('/does-not-exist')
+
+    withApp(pathToPage)
+
+    expect(screen.getByText('Pagina niet gevonden.')).toBeInTheDocument()
+  })
 })

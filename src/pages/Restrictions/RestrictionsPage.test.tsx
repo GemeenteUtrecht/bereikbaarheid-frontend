@@ -1,8 +1,11 @@
 import { screen, waitFor, within } from '@testing-library/react'
+import { http, HttpResponse } from 'msw'
 import { generatePath } from 'react-router-dom'
 
+import { ENDPOINT as ENDPOINT_PROHIBITORY_ROADS } from '../../api/nationaalwegenbestand/rvv/wegvakken'
 import { getPathTo } from '../../routes'
 import { axleWeightCategories } from './vehiclePropertyCategories.ts'
+import { server } from '../../../test/server.ts'
 import { withApp } from '../../../test/utils/withApp'
 
 import prohibitoryRoadSectionsData from '../../../test/mocks/nationaalwegenbestand/rvv/wegvakken/data.json'
@@ -33,5 +36,22 @@ describe('RestrictionsPage', () => {
         document.querySelectorAll('.leaflet-overlay-pane svg path').length,
       ).toBe(numberOfFeatures),
     )
+  })
+
+  it('shows the error page when the api is unreachable', async () => {
+    const pathToPage = generatePath(getPathTo('RESTRICTIONS_MAP'))
+
+    server.use(
+      http.get(ENDPOINT_PROHIBITORY_ROADS, () => {
+        return HttpResponse.json({}, { status: 503 })
+      }),
+    )
+
+    withApp(pathToPage)
+
+    // wait until the page is rendered
+    await screen.findByText(/Helaas/)
+
+    expect(screen.getByText(/Er ging iets fout/)).toBeInTheDocument()
   })
 })

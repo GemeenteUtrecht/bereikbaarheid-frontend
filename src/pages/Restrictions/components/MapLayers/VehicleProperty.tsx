@@ -36,6 +36,7 @@ export const RestrictionsMapLayerVehicleProperty = ({
         )
       },
       staleTime: 1000 * 60 * 15,
+      useErrorBoundary: true,
     })),
   })
 

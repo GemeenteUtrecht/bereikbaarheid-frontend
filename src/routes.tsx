@@ -15,11 +15,13 @@ export const ROUTES: RouteObject[] = [
     path: '/bereikbaarheid',
     id: 'ACCESSIBILITY_MAP',
     element: <ProhibitorySignsPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/beperkingen',
     id: 'RESTRICTIONS_MAP',
     element: <RestrictionsPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/wegvak/:wegvakId',

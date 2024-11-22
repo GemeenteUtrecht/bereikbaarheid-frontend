@@ -1,8 +1,11 @@
 import { screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { http, HttpResponse } from 'msw'
 import { generatePath } from 'react-router-dom'
 
+import { ENDPOINT as ENDPOINT_PROHIBITORY_ROADS } from '../../api/nationaalwegenbestand/rvv/wegvakken'
 import { getPathTo } from '../../routes'
+import { server } from '../../../test/server.ts'
 import { withApp } from '../../../test/utils/withApp'
 
 import prohibitoryRoadSectionsData from '../../../test/mocks/nationaalwegenbestand/rvv/wegvakken/data.json'
@@ -29,6 +32,47 @@ describe('ProhibitorySignsPage', () => {
         name: /invoer gegevens/i,
       }),
     ).toBeVisible()
+  })
+
+  it('shows the error page when the api is unreachable', async () => {
+    const pathToPage = generatePath(getPathTo('ACCESSIBILITY_MAP'))
+    const user = userEvent.setup()
+
+    server.use(
+      http.get(ENDPOINT_PROHIBITORY_ROADS, () => {
+        return HttpResponse.json({}, { status: 503 })
+      }),
+    )
+
+    withApp(pathToPage)
+
+    // wait until page is rendered
+    await screen.findAllByText(/bereikbaarheid/i)
+
+    // fill out the first form
+    await user.type(await screen.findByLabelText('Kenteken'), 'BXLS14')
+    await user.type(
+      await screen.findByLabelText('Hoogte van uw voertuig'),
+      '2.78',
+    )
+
+    // ... but uncheck the address option
+    await user.click(await screen.findByLabelText('Ik wil een adres invoeren'))
+
+    await user.click(screen.getByText('Volgende', { selector: 'button' }))
+
+    // the next step should be the form with RDW information
+    expect(
+      await within(screen.getByRole('dialog')).findByText('RDW gegevens'),
+    ).toBeVisible()
+
+    // complete the wizard
+    await user.click(screen.getByText('Kaart bekijken', { selector: 'button' }))
+
+    // wait until the page is rendered
+    await screen.findByText(/Helaas/)
+
+    expect(screen.getByText(/Er ging iets fout/)).toBeInTheDocument()
   })
 
   it('renders the map when the wizard is completed', async () => {

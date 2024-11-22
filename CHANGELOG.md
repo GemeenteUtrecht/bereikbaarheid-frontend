@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 ## [Unreleased](https://github.com/GemeenteUtrecht/bereikbaarheid-frontend/compare/v0.7.7...HEAD)
 
 ### Fixed
+- show user-friendly error message when API is unreachable
 - Restrictions: add tests
 
 
